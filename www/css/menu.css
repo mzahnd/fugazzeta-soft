@@ -1,0 +1,235 @@
+/* 
+%content-padding {
+  // display: flex;
+  // flex-grow: 1;
+  // flex-shrink: 1;
+  // flex-basis: auto;
+  // flex-flow: column nowrap;
+
+  // div {
+  //   @include common.flex-item-align-center;
+  //   flex-grow: 1;
+  //   flex-shrink: 1;
+  //   flex-basis: auto;
+  // }
+
+  // > p {
+  //   // @include common.flex-item-align-center;
+  //   // width: 100%;
+
+  //   // padding: 0;
+  //   // margin: auto;
+  //   // text-decoration: none;
+
+  //   color: get-color("text");
+  // }
+
+  // > h1, h2, h3, h4, h5, h6 { 
+  //   color: get-color("text");
+  // }  
+}
+*/
+.btn {
+  margin: 0;
+  padding: 10px 0;
+  vertical-align: middle;
+  overflow: hidden;
+  background-color: #03081a;
+  border: 1px solid #a3440d;
+  border-radius: 10px;
+  color: #cfcfcf;
+  font-size: 1.25rem;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+.btn:focus:not(.focus-visible) {
+  outline: none;
+}
+
+.btn:hover, .btn:focus, .btn:active, .btn:visited {
+  background-color: #03081a;
+  border: 1px solid #a3440d;
+  color: #cfcfcf;
+}
+.btn:hover {
+  background-color: #963f0d;
+  border-color: #ea6213;
+}
+.btn:active {
+  background-color: #963f0d;
+  border-color: #ea6213;
+}
+
+header, footer {
+  display: flex;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+}
+
+html {
+  font-size: 12pt;
+  font-family: Georgia, serif;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background: #03081a;
+  color: #cfcfcf;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: Verdana, sans-serif;
+}
+
+h1 {
+  font-size: 1.8rem;
+}
+
+h2 {
+  font-size: 1.6rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+h4 {
+  font-size: 1.4rem;
+}
+
+h5 {
+  font-size: 1.3rem;
+}
+
+h6 {
+  font-size: 1.2rem;
+}
+
+p {
+  font-size: 1rem;
+}
+
+*::before, *::after {
+  box-sizing: border-box;
+}
+
+.menu_container {
+  background-color: #c56630;
+  height: 40vh;
+  width: 100vw;
+  display: none;
+}
+
+#menu_main {
+  min-width: 200px;
+  min-height: 100vh;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: stretch;
+}
+#menu_main ul {
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  list-style-type: none;
+  text-align: center;
+}
+#menu_main li {
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+}
+#menu_main .menu_content {
+  height: 100vh;
+  display: flex;
+  flex-flow: column nowrap;
+  flex-grow: 9;
+  justify-content: space-between;
+  align-items: stretch;
+}
+#menu_main .menu_content .logo {
+  max-height: 8%;
+  margin: 0;
+  margin-top: 25px;
+  object-fit: scale-down;
+}
+#menu_main #btn-menu_main-close {
+  position: absolute;
+  top: 10px;
+  right: 5px;
+  min-width: 0;
+  width: 40px;
+  height: 30px;
+  padding: 0px;
+  font-size: 1.1rem;
+}
+#menu_main .menu_list {
+  min-width: 200px;
+  margin: 0;
+  padding: 25px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column nowrap;
+}
+#menu_main .menu_list li {
+  margin: 15px;
+  font-size: 1.5rem;
+  background-color: transparent;
+  border-radius: 10px;
+}
+#menu_main .accessibility_opts {
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column nowrap;
+  justify-content: flex-end;
+  align-items: center;
+}
+#menu_main .accessibility_opts p {
+  margin: 0;
+  padding: 0;
+  font-size: 1.25rem;
+}
+#menu_main .accessibility_opts ul {
+  width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+#menu_main .accessibility_opts ul li {
+  margin: 15px;
+}
+#menu_main .accessibility_opts button {
+  font-size: 1.25rem;
+}
+#menu_main .accessibility_opts #accessibility_zoom_label {
+  display: none;
+}
+#menu_main .btn {
+  min-width: 50px;
+  margin: 0;
+  padding: 10px 0px;
+  display: inline-block;
+}
+#menu_main .btn-link {
+  min-width: 200px;
+  margin: 0;
+  padding: 10px 0px;
+  border-top: 1px solid #a3440d;
+  border-bottom: 1px solid #a3440d;
+  border-left: none;
+  border-right: none;
+  border-radius: 0;
+  font-size: 1.5rem;
+}
+
+/*# sourceMappingURL=menu.css.map */

@@ -1,0 +1,145 @@
+@use 'sass:color';
+@use 'common';
+@use 'pages-style';
+
+$desktop-height:  55px;
+$mobile-height:   50px;
+$tablet-height:   50px;
+
+$background-color:              #304170;
+
+$header_main_logo-tablet-margins: 10vw;
+
+$font-size-def:                   16pt;
+$header_main_logo-font-size:      calc($font-size-def * 1);
+
+@mixin tablet() {
+  @include common.media-screen(tablet) { @content; }
+}
+
+@mixin desktop() {
+  @include common.media-screen(desktop) { @content; }
+  @include common.media-screen(desktop-big) { @content; }
+}
+
+
+.header_main {
+  $btn-margins:                   15px;
+
+  display: flex;
+  background-color: $background-color;
+  height: $mobile-height;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+
+  width: 100%;
+
+
+  /* Tablet */
+  @include tablet() {
+    height: $tablet-height;
+  }
+  /* Desktop */
+  @include desktop() {
+    height: $desktop-height;
+  }
+
+  div {
+    border-width: 0;
+    height: 100%;
+
+    background-color: $background-color;
+    text-align: center;
+
+    @include common.flex-item-align-center;
+  }
+
+  &_btn {
+    $margins:             $btn-margins;
+    $font-size:           $font-size-def;
+    $border-style:        1px solid white;
+
+    @include common.flex-item-align-center;
+
+    // Left and right margins between the flex's container and inner content
+    margin-left: $margins;
+    margin-right: $margins;
+
+    padding: 4px 6px;
+
+    background-color: $background-color;
+
+    color: pages-style.get-color("btn-text");
+    font-size: $font-size;
+    text-align: center;
+    line-height: 20px;
+
+    border: $border-style;
+    border-radius: 5px;
+
+    &:hover, &:focus, &:active, &:visited {
+      background-color: $background-color;
+      color: pages-style.get-color("btn-text");
+      border: $border-style;
+    }
+    &:hover {
+      background-color: color.adjust($background-color, $blackness: 5%);
+    }
+    &:active {
+      background-color: color.adjust($background-color, $blackness: 15%);
+    }
+  }
+
+  &_logo {
+    margin: 0;
+    // There's only one button on the left side
+    margin-right: calc($btn-margins * 2); 
+
+    color: pages-style.get-color("text");
+    font-size: $header_main_logo-font-size;
+
+    a {
+      flex-grow: 10;
+      @include common.flex-item-align-center;
+
+      width: auto;
+
+      margin: 0;
+      padding: 0;
+      text-decoration: none;
+
+      height: 100%;
+  
+      p {
+        width: auto;
+        margin: 0 25px;
+        padding: 0;
+
+        font-size: $header_main_logo-font-size;
+
+        color: pages-style.get-color("text");
+
+        /* Desktop */
+        @include desktop() {
+          font-size: $header_main_logo-font-size * 1.25; 
+        }
+      }
+    }
+
+    &::after {
+      content: "";
+      clear: both;
+      display: table;
+    }
+  }
+
+  &_separator {
+    flex-grow: 9;
+  }
+}
+
+.logo {
+    max-height: 75%;
+    object-fit: scale-down;
+}

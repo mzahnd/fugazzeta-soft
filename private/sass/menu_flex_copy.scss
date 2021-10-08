@@ -1,0 +1,166 @@
+@use 'sass:color';
+@use 'sass:math';
+@use 'common';
+@use 'pages-style';
+
+#menu_main {
+    $menu-min-width: 150px;
+
+    $btn-background-color: pages-style.get-color("background");
+    $btn-margins: 15px; // Around buttons, set in 'li'
+    // Inside buttons, set in '.btn'. left and right padding: $menu-min-width
+    $btn-padding: 10px 0px;
+    $btn-border-radius: 10px;
+
+    // Padding a little so it looks centered even with the button
+    $menu-content-padding: 0 0 0 37px; 
+
+    min-width: $menu-min-width;
+    height: 100vh;
+
+    display: flex;
+    @include common.flex-row-nw;
+
+    justify-content: space-between;
+    align-items: flex-start;
+
+    ul {
+        margin: 0;
+        padding: 0;
+
+        background-color: transparent;
+
+        list-style-type: none;
+        text-align: center;
+    }
+
+    li {
+        margin: 0;
+        padding: 0;
+        display: inline-block;
+    }
+
+    .menu_content {
+        display: flex;
+        @include common.flex-column;
+        flex-grow: 9;
+
+        order: 0;
+
+        height: 100vh;
+
+        justify-content: space-between;
+        align-items: stretch;
+    }
+
+    #btn-menu_main-close {
+        order: 1;
+    }
+
+    .menu_list {
+        min-width: $menu-min-width;
+
+        @include common.flex-item-align-center;
+        @include common.flex-column;
+
+        // background-color: yellow; 
+
+        margin: 0;
+        padding: 0 0 0 37px;
+
+        li {
+            margin: $btn-margins;
+            
+            font-size: 1.5rem;
+            background-color: transparent;
+
+            border-radius: $btn-border-radius;
+        }
+    }
+
+    .accessibility_opts {
+        @include common.flex-item-align-center;
+        @include common.flex-column;
+
+        justify-content: flex-end;
+        align-items: center;
+
+        p {
+            margin: 0;
+            padding: 0 0 0 37px;
+
+            font-size: 1.25rem;
+
+            text-align: center;
+        }
+
+        ul {
+            width: $menu-min-width;
+
+            @include common.flex-item-align-center;
+            @include common.flex-row;
+            
+            justify-content: space-around;
+            align-items: center;
+
+            margin: 0;
+            padding: 0 0 0 37px;
+
+            li {
+                margin: $btn-margins;
+            }
+        }
+    }
+
+    .btn {
+        $btn-border-style: 1px solid 
+                                pages-style.get-color("btn-background");
+
+        min-width: math.div($menu-min-width, 4);
+        
+        margin: 0;
+        padding: $btn-padding;
+
+        display: inline-block;
+        text-align: center;
+        vertical-align: middle;
+        overflow: hidden;
+
+        background-color: $btn-background-color;
+        
+        color: pages-style.get-color("btn-text");
+        text-decoration: none;
+        
+        border: $btn-border-style;
+        border-radius: $btn-border-radius;
+
+        
+        &-link {
+            min-width: $menu-min-width;
+            
+            margin: 0;
+            padding: $btn-padding;
+
+            border-top: $btn-border-style;
+            border-bottom: $btn-border-style;
+            border-left: none;
+            border-right: none;
+
+            border-radius: 0;
+        }
+
+        &:hover, &:focus, &:active, &:visited {
+            background-color: $btn-background-color;
+            border-top: $btn-border-style;
+            border-bottom: $btn-border-style;
+        }
+        &:hover {
+            background-color: color.adjust($btn-background-color, 
+                                            $blackness: 5%);
+        }
+        &:active {
+            background-color: color.adjust($btn-background-color, 
+                                            $blackness: 15%);
+        }
+    }
+}

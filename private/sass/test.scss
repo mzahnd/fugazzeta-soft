@@ -1,0 +1,39 @@
+p {
+  color: blue;
+}
+
+.container {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+
+  margin: 0;
+  padding: 0;
+
+  > div {
+    background-color: DodgerBlue;
+    border: 2px solid black;
+
+    color: white;
+    text-align: center;
+    line-height: 4rem;
+    font-size: 2rem;
+    padding: 0 20px;
+  }
+
+  .first {
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: auto;
+  }
+  .second {
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: auto;
+  }
+  .third {
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: auto;
+  }
+}

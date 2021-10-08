@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/header.css">
+</head>
+<body>
+  <div class="header_main">
+    <button class="header_main_btn" id="toggle_menu_btn" 
+              onclick="toggleMenu()">M</button>
+    
+    <div class="header_main_logo">
+      <a href="../index.html">
+          <p>Fugazzeta Soft</p>
+          <img class="logo" src="../../res/logo.png"
+                  alt="Fugazzeta Soft">
+      </a>
+    </div>
+  </div>
+</body>

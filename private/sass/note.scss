@@ -1,0 +1,86 @@
+@use 'sass:color';
+@use 'common';
+
+@use 'pages-style' with (
+    $page-container-name: "#page-container",
+);
+
+$content-width: 90vw;
+
+.code {
+    width: $content-width;
+    margin: 1em 5vw;
+    padding: 1em 0 1em 5px;
+
+    color: pages-style.get-color("text");
+    text-align: left;
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-family: monospace, "Courier New";
+
+    overflow-x: auto;
+    white-space: nowrap;
+
+    border: 0;
+    border-left: 5px solid pages-style.get-color("border-code");
+    background-color: pages-style.get-color("background-code-box");
+}
+
+p {
+    width: $content-width;
+    padding: 0;
+    margin: 0.2rem 5vw;
+
+    color: pages-style.get-color("text");
+    text-align: justify;
+    text-decoration: none;
+    font-size: 1rem;
+    font-family: Georgia, serif;
+
+    .inline-code {
+        background-color: color.adjust(
+            pages-style.get-color("background-code-box"),
+            $blackness: 5%
+        );
+        text-decoration: none;
+        font-size: 0.9rem;
+        font-family: monospace, "Courier New";
+
+        border: 1px solid color.adjust(
+                            pages-style.get-color("background-code-box"),
+                            $lightness: 5%
+        );
+        line-height: 1.7;
+        padding: 0px 3px;
+        margin: 0;
+
+        overflow-wrap: break-word;
+    }
+
+    > a {
+        display: inline;
+        width: 0;
+        margin: 0;
+        padding: 0;
+    }
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0.5rem 5vw;
+    color: pages-style.get-color("text");
+}
+
+a {
+    max-width: $content-width;
+    padding: 0px 0;
+    margin: 0.2rem calc(5vw - 2*0.2rem);
+    color: pages-style.get-color("links");
+    text-align: justify;
+    text-decoration: underline;
+    font-size: 1rem;
+    font-family: Georgia, serif;
+
+    line-height: 1.4;
+
+    display: inline-block;
+}

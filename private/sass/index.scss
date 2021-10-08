@@ -1,0 +1,44 @@
+@use "sass:map";
+@use "sass:math";
+@use 'common';
+
+@use 'pages-style' with (
+$page-container-name: "#page-container",
+);
+
+$button-border-radius: 15px;
+$margins-top-bottom: 15px;
+
+$btn-padding-top-bottom: 25px;
+$btn-padding-left-right: 15px;
+
+p {
+  @include common.flex-item-align-center;
+
+  text-align: center;
+  font-size: max(55px, 12vw);
+}
+
+
+/* Tablet */
+@include common.media-screen(tablet) {
+  #welcome_container {
+    .btn {
+      width: 50%;
+      padding: $btn-padding-top-bottom*1.5 $btn-padding-left-right*1.5;
+    }
+  }
+}
+
+/* Desktop */
+@include common.media-screen(desktop) {
+  p {
+    font-size: 7vw;
+  }
+}
+
+@include common.media-screen(desktop-big) {
+  p {
+    font-size: 5vw;
+  }
+}

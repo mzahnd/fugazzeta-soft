@@ -1,0 +1,236 @@
+/* 
+%content-padding {
+  // display: flex;
+  // flex-grow: 1;
+  // flex-shrink: 1;
+  // flex-basis: auto;
+  // flex-flow: column nowrap;
+
+  // div {
+  //   @include common.flex-item-align-center;
+  //   flex-grow: 1;
+  //   flex-shrink: 1;
+  //   flex-basis: auto;
+  // }
+
+  // > p {
+  //   // @include common.flex-item-align-center;
+  //   // width: 100%;
+
+  //   // padding: 0;
+  //   // margin: auto;
+  //   // text-decoration: none;
+
+  //   color: get-color("text");
+  // }
+
+  // > h1, h2, h3, h4, h5, h6 { 
+  //   color: get-color("text");
+  // }  
+}
+*/
+.btn {
+  margin: 0;
+  padding: 10px 0;
+  vertical-align: middle;
+  overflow: hidden;
+  background-color: #03081a;
+  border: 1px solid #a3440d;
+  border-radius: 10px;
+  color: #cfcfcf;
+  font-size: 1.25rem;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+.btn:focus:not(.focus-visible) {
+  outline: none;
+}
+
+.btn:hover, .btn:focus, .btn:active, .btn:visited {
+  background-color: #03081a;
+  border: 1px solid #a3440d;
+  color: #cfcfcf;
+}
+.btn:hover {
+  background-color: #963f0d;
+  border-color: #ea6213;
+}
+.btn:active {
+  background-color: #963f0d;
+  border-color: #ea6213;
+}
+
+header, footer {
+  display: flex;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+}
+
+html {
+  font-size: 12pt;
+  font-family: Georgia, serif;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background: #03081a;
+  color: #cfcfcf;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: Verdana, sans-serif;
+}
+
+h1 {
+  font-size: 1.8rem;
+}
+
+h2 {
+  font-size: 1.6rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+h4 {
+  font-size: 1.4rem;
+}
+
+h5 {
+  font-size: 1.3rem;
+}
+
+h6 {
+  font-size: 1.2rem;
+}
+
+p {
+  font-size: 1rem;
+}
+
+*::before, *::after {
+  box-sizing: border-box;
+}
+
+.menu_container {
+  background-color: #c56630;
+  height: 40vh;
+  width: 100vw;
+  display: none;
+}
+
+.header_main {
+  display: flex;
+  background-color: #304170;
+  height: 50px;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+  width: 100%;
+  /* Tablet */
+  /* Desktop */
+}
+@media screen and (min-width: 600px) and (max-width: 1023px) {
+  .header_main {
+    height: 50px;
+  }
+}
+@media screen and (min-width: 1024px) and (max-width: 1799px) {
+  .header_main {
+    height: 55px;
+  }
+}
+@media screen and (min-width: 1800px) {
+  .header_main {
+    height: 55px;
+  }
+}
+.header_main div {
+  border-width: 0;
+  height: 100%;
+  background-color: #304170;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.header_main_btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 15px;
+  margin-right: 15px;
+  padding: 4px 6px;
+  background-color: #304170;
+  color: #cfcfcf;
+  font-size: 16pt;
+  text-align: center;
+  line-height: 20px;
+  border: 1px solid white;
+  border-radius: 5px;
+}
+.header_main_btn:hover, .header_main_btn:focus, .header_main_btn:active, .header_main_btn:visited {
+  background-color: #304170;
+  color: #cfcfcf;
+  border: 1px solid white;
+}
+.header_main_btn:hover {
+  background-color: #303e63;
+}
+.header_main_btn:active {
+  background-color: #30374a;
+}
+.header_main_logo {
+  margin: 0;
+  margin-right: 30px;
+  color: #cfcfcf;
+  font-size: 16pt;
+}
+.header_main_logo a {
+  flex-grow: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  height: 100%;
+}
+.header_main_logo a p {
+  width: auto;
+  margin: 0 25px;
+  padding: 0;
+  font-size: 16pt;
+  color: #cfcfcf;
+  /* Desktop */
+}
+@media screen and (min-width: 1024px) and (max-width: 1799px) {
+  .header_main_logo a p {
+    font-size: 20pt;
+  }
+}
+@media screen and (min-width: 1800px) {
+  .header_main_logo a p {
+    font-size: 20pt;
+  }
+}
+.header_main_logo::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+.header_main_separator {
+  flex-grow: 9;
+}
+
+.logo {
+  max-height: 75%;
+  object-fit: scale-down;
+}
+
+/*# sourceMappingURL=header.css.map */
