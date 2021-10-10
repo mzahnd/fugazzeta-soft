@@ -3,7 +3,8 @@
 
 @use 'common';
 
-$page-container-name:         null !default;
+$-container-full-page-name:        null !default; // Menu + Content container
+$-container-page-name:          null !default; // Header + Content + Footer
 // $content-padding-div-name:    null !default;
 
 $-logo-img-path:                   "../../res/logo.png";
@@ -75,7 +76,7 @@ $-page-container-height:      100vh;
 }
 
 // Style
-%page-container {
+%container-content {
   display: flex;
   @include common.flex-column;
   min-height: 100vh;
@@ -114,7 +115,7 @@ $-page-container-height:      100vh;
 */
 
 .btn {
-  $btn-border-style: 1px solid get-color("btn-border");
+  $btn-border-style: 2px solid get-color("btn-border");
 
   // @include common.flex-item-align-center();
   @include common.btn-no-border-chrome(&);
@@ -163,18 +164,18 @@ header, footer {
   flex-basis: auto;
 }
 
-@if $page-container-name {
-  #{$page-container-name} {
-    @extend %page-container;
-  }
-}
 
 // #{$content-padding-div-name} {
 //   @extend %content-padding;
 // }
 
+:root {
+  --page-font-size: 12pt;
+}
+
 html {
-  font-size: 12pt;
+  // font-size: 12pt;
+  font-size: var(--page-font-size, 12pt);
 
   font-family: Georgia, serif;
 }
@@ -223,11 +224,47 @@ p {
   box-sizing: border-box;
 }
 
-.menu_container {
-  background-color: #c56630;
+.container-menu {
+  $border-right-radius: 10px;
 
-  height: 40vh;
   width: 100vw;
+  height: 100vh;
+  max-width: 100vw;
 
-  display: none;
+  position: fixed;
+  overflow: auto;
+  top:0;
+  left:-100vw;    // Must be equal to max-width for transition to look smooth
+
+  border-radius: 0;
+
+  transition-property: left;
+  transition-duration: 2s;
+  transition-delay: 0s;
+  transition-timing-function: ease-in-out;
+
+  /* Desktop */
+  @include common.media-screen(desktop) {
+    max-width: 40vw;
+    left:-40vw;     // Must be equal to max-width for transition to look smooth
+
+    border-radius: 0 $border-right-radius $border-right-radius 0;
+
+    transition-duration: 2s;
+  }
+  @include common.media-screen(desktop-big) { 
+    max-width: 30vw;
+    left:-30vw;   // Must be equal to max-width for transition to look smooth
+
+    border-radius: 0 $border-right-radius $border-right-radius 0;
+
+    transition-duration: 2s;
+  }
+}
+
+
+@if $-container-page-name {
+  #{$-container-page-name} {
+    @extend %container-content;
+  }
 }

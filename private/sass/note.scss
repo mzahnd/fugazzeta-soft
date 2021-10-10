@@ -2,7 +2,7 @@
 @use 'common';
 
 @use 'pages-style' with (
-    $page-container-name: "#page-container",
+    $-container-page-name: "#container-page",
 );
 
 $content-width: 90vw;

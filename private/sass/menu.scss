@@ -3,16 +3,16 @@
 @use 'common';
 @use 'pages-style';
 
-#menu_main {
+#menu-main {
     $menu-min-width: 200px;
 
-    $btn-background-color: pages-style.get-color("background");
+    $btn-background-color: pages-style.get-color("btn-background");
     $btn-margins: 15px; // Around buttons, set in 'li'
     // Inside buttons, set in '.btn'. left and right padding: $menu-min-width
     $btn-padding: 10px 0px;
     $btn-border-radius: 10px;
 
-    min-width: $menu-min-width;
+    // min-width: $menu-min-width;
     min-height: 100vh;
 
     display: flex;
@@ -20,6 +20,10 @@
 
     justify-content: space-between;
     align-items: stretch;
+
+    overflow: auto;
+
+    background-color: pages-style.get-color("background");
 
     ul {
         margin: 0;
@@ -37,7 +41,7 @@
         display: inline-block;
     }
 
-    .menu_content {
+    .menu-content {
         height: 100vh;
 
         display: flex;
@@ -57,21 +61,22 @@
         }
     }
 
-    #btn-menu_main-close {
+    #btn-menu-main-close {
         position: absolute;
         top: 10px;
-        right: 5px;
+        right: 10px;
 
         min-width: 0; // Override min-width in '.btn'
-        width: 40px;
+        width: 30px;
         height: 30px;
         
-        padding: 0px;
+        padding: 0;
+        -webkit-padding-before: 2px; // In Chrome looks out of place
 
-        font-size: 1.1rem;
+        font-size: 16pt;
     }
 
-    .menu_list {
+    .menu-list {
         min-width: $menu-min-width;
 
         margin: 0;
@@ -90,7 +95,7 @@
         }
     }
 
-    .accessibility_opts {
+    .accessibility-opts {
         margin-top: 30px;
 
         @include common.flex-item-align-center;
@@ -100,6 +105,8 @@
         align-items: center;
 
         p {
+            width: inherit;
+
             margin: 0;
             padding: 0;
 
@@ -107,7 +114,7 @@
         }
 
         ul {
-            width: $menu-min-width;
+            width: inherit;
 
             @include common.flex-item-align-center;
             @include common.flex-row;
@@ -121,17 +128,14 @@
         }
 
         button {
-            font-size: 1.25rem;
+            font-size: 1rem;
         }
 
-        #accessibility_zoom_label {
-            display: none;
-        }
     }
 
     .btn {
         $btn-border-color: pages-style.get-color("btn-border");
-        $btn-border-style: 1px solid $btn-border-color;
+        $btn-border-style: 2px solid $btn-border-color;
 
         min-width: math.div($menu-min-width, 4);
         

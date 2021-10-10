@@ -8,10 +8,10 @@ $tablet-height:   50px;
 
 $background-color:              #304170;
 
-$header_main_logo-tablet-margins: 10vw;
+$header-main-logo-tablet-margins: 10vw;
 
 $font-size-def:                   16pt;
-$header_main_logo-font-size:      calc($font-size-def * 1);
+$header-main-logo-font-size:      $font-size-def;
 
 @mixin tablet() {
   @include common.media-screen(tablet) { @content; }
@@ -23,18 +23,13 @@ $header_main_logo-font-size:      calc($font-size-def * 1);
 }
 
 
-.header_main {
+.header-main {
   $btn-margins:                   15px;
 
   display: flex;
-  background-color: $background-color;
-  height: $mobile-height;
-  justify-content: space-between;
-  align-items: center;
-  overflow: hidden;
-
+  
   width: 100%;
-
+  height: $mobile-height;
 
   /* Tablet */
   @include tablet() {
@@ -44,6 +39,12 @@ $header_main_logo-font-size:      calc($font-size-def * 1);
   @include desktop() {
     height: $desktop-height;
   }
+
+  background-color: $background-color;
+  
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
 
   div {
     border-width: 0;
@@ -55,9 +56,8 @@ $header_main_logo-font-size:      calc($font-size-def * 1);
     @include common.flex-item-align-center;
   }
 
-  &_btn {
+  &-btn {
     $margins:             $btn-margins;
-    $font-size:           $font-size-def;
     $border-style:        1px solid white;
 
     @include common.flex-item-align-center;
@@ -71,12 +71,19 @@ $header_main_logo-font-size:      calc($font-size-def * 1);
     background-color: $background-color;
 
     color: pages-style.get-color("btn-text");
-    font-size: $font-size;
+    font-size: $font-size-def;
     text-align: center;
     line-height: 20px;
 
+    /* Desktop */
+    @include desktop() {
+      font-size: $font-size-def * 0.9;
+    }
+
     border: $border-style;
     border-radius: 5px;
+
+    cursor: pointer;
 
     &:hover, &:focus, &:active, &:visited {
       background-color: $background-color;
@@ -91,13 +98,13 @@ $header_main_logo-font-size:      calc($font-size-def * 1);
     }
   }
 
-  &_logo {
+  &-logo {
     margin: 0;
     // There's only one button on the left side
     margin-right: calc($btn-margins * 2); 
 
     color: pages-style.get-color("text");
-    font-size: $header_main_logo-font-size;
+    font-size: $header-main-logo-font-size;
 
     a {
       flex-grow: 10;
@@ -113,16 +120,17 @@ $header_main_logo-font-size:      calc($font-size-def * 1);
   
       p {
         width: auto;
-        margin: 0 25px;
+        margin: 15px 25px;
         padding: 0;
 
-        font-size: $header_main_logo-font-size;
+        font-size: $header-main-logo-font-size;
 
         color: pages-style.get-color("text");
+        text-align: center;
 
         /* Desktop */
         @include desktop() {
-          font-size: $header_main_logo-font-size * 1.25; 
+          font-size: $header-main-logo-font-size * 1.3; 
         }
       }
     }
@@ -134,7 +142,7 @@ $header_main_logo-font-size:      calc($font-size-def * 1);
     }
   }
 
-  &_separator {
+  &-separator {
     flex-grow: 9;
   }
 }

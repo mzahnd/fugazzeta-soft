@@ -8,54 +8,55 @@
 
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/menu.css">
 
-    <script>
-        function toggleMenu() {
-            const btn = document.getElementById("toggle_menu_btn");
-            
-            const container = document.getElementById("main_menu_container");
-            const container_style = window.getComputedStyle(container);
-            
-            if (!container_style.getPropertyValue('display').localeCompare("none")) {
-                container.style.display = "inline-block";
-            } else {
-                container.style.display = "none";
-            }
-        }
+    <!-- ====== Font Awesome ====== -->
+    <script src="https://kit.fontawesome.com/0cfe53209a.js" crossorigin="anonymous"></script>
+    <!-- ====== END Font Awesome ====== -->
 
-        function closeMenuOnPageClick() {
-            const container = document.getElementById("main_menu_container");
-            const container_computed_style = window.getComputedStyle(container);
-
-            if (container.style.getPropertyValue('display').localeCompare("none") || container_style.getPropertyValue('display').localeCompare("none")) {
-                container.style.display = "none";
-            }
-        }
-    </script>
+    <script type="text/javascript" src="../../js/header.js"></script>
+    <script type="text/javascript" src="../../js/main-menu.js"></script>
   </head>
   <body>
-    <div class="page-container">
-      <header>
-        <div class="header_main">
-          <button class="header_main_btn" id="toggle_menu_btn" 
-                    onclick="toggleMenu()">M</button>
-          <div class="header_main_separator"></div>
-          <div class="header_main_logo">
+    <div class="container-menu" id="menu-main">
+        <button class="btn" id="btn-menu-main-close"><i class="fas fa-times"></i></button>
+        <div class="menu-content">
+            <img src="../../res/logo.png" class="logo" alt="Fugazzeta Soft">
+            <ul class="menu-list">
+            <li><a href="index.html" class="btn btn-link">Home</a></li>
+            <li><a href="#" class="btn btn-link">Blog</a></li>
+            <li><a href="#" class="btn btn-link">Notes</a></li>
+            </ul>
+
+            <div class="accessibility-opts">
+                <p>Current font size: 
+                  <span id="accessibility-font-size-label">0 pt</span>
+                </p>
+                <ul>
+                  <li><button class="btn" id="accessibility-zoom-m"><i class="fas fa-minus"></i></button></li>
+                  <li><button class="btn" id="accessibility-zoom-p"><i class="fas fa-plus"></i></button></li>
+                </ul>
+              </div>
+        </div>
+    </div>
+
+    <div id="container-page">
+    <header>
+        <div class="header-main">
+        <button class="header-main-btn" id="btn-toggle-menu"><i class="fas fa-bars"></i></button>
+        <div class="header-main-separator"></div>
+        <div class="header-main-logo">
             <a href="../index.html">
                 <p>Fugazzeta Soft</p>
                 <img class="logo" src="../../res/logo.png"
                         alt="Fugazzeta Soft">
             </a>
-          </div>
-          <div class="header_main_separator"></div>
         </div>
-      </header>
+        <div class="header-main-separator"></div>
+        </div>
+    </header>
 
-      <div class="menu_container" id="main_menu_container">
-          <p>Hi!</p>
-      </div>
-
-      <div class="content-padding note-content" onclick="closeMenuOnPageClick()">
+    <div class="note-content page-content">
         <h1>Installing HP LaserJet 1020</h1>
         <h2>Dependencies</h2>
         <div class="code">
@@ -142,13 +143,13 @@
         <a href="https://bugs.launchpad.net/hplip/+bug/1818629">HPLIP 3.19.1 - hp-plugin won't install/update - unable to receive keys</a>
         <br>
         <a href="https://bugs.launchpad.net/hplip/+bug/1084062">No PPD found for model deskjet_4620 using new/old algorithm</a>
-      </div>
+    </div>
 
-      <footer>
+    <footer>
         <div class="footer footer_main">
-          <p>Created by Martín E. Zahnd</p>
+        <p>Created by Martín E. Zahnd</p>
         </div>
-      </footer>
+    </footer>
     </div>
   </body>
 </html>

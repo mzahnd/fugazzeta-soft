@@ -1,3 +1,6 @@
+/* Up to 599px is mobile, from 600px is tablet */
+/* From 600px to 1023px is tablet; from 1024px is desktop */
+/* From 1800px onward is a big desktop */
 /* 
 %content-padding {
   // display: flex;
@@ -35,7 +38,7 @@
   vertical-align: middle;
   overflow: hidden;
   background-color: #03081a;
-  border: 1px solid #a3440d;
+  border: 2px solid #a3440d;
   border-radius: 10px;
   color: #cfcfcf;
   font-size: 1.25rem;
@@ -49,7 +52,7 @@
 
 .btn:hover, .btn:focus, .btn:active, .btn:visited {
   background-color: #03081a;
-  border: 1px solid #a3440d;
+  border: 2px solid #a3440d;
   color: #cfcfcf;
 }
 .btn:hover {
@@ -68,8 +71,12 @@ header, footer {
   flex-basis: auto;
 }
 
+:root {
+  --page-font-size: 12pt;
+}
+
 html {
-  font-size: 12pt;
+  font-size: var(--page-font-size, 12pt);
   font-family: Georgia, serif;
 }
 
@@ -116,34 +123,60 @@ p {
   box-sizing: border-box;
 }
 
-.menu_container {
-  background-color: #c56630;
-  height: 40vh;
+.container-menu {
   width: 100vw;
-  display: none;
+  height: 100vh;
+  max-width: 100vw;
+  position: fixed;
+  overflow: auto;
+  top: 0;
+  left: -100vw;
+  border-radius: 0;
+  transition-property: left;
+  transition-duration: 2s;
+  transition-delay: 0s;
+  transition-timing-function: ease-in-out;
+  /* Desktop */
+}
+@media screen and (min-width: 1024px) and (max-width: 1799px) {
+  .container-menu {
+    max-width: 40vw;
+    left: -40vw;
+    border-radius: 0 10px 10px 0;
+    transition-duration: 2s;
+  }
+}
+@media screen and (min-width: 1800px) {
+  .container-menu {
+    max-width: 30vw;
+    left: -30vw;
+    border-radius: 0 10px 10px 0;
+    transition-duration: 2s;
+  }
 }
 
-#menu_main {
-  min-width: 200px;
+#menu-main {
   min-height: 100vh;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
   align-items: stretch;
+  overflow: auto;
+  background-color: #03081a;
 }
-#menu_main ul {
+#menu-main ul {
   margin: 0;
   padding: 0;
   background-color: transparent;
   list-style-type: none;
   text-align: center;
 }
-#menu_main li {
+#menu-main li {
   margin: 0;
   padding: 0;
   display: inline-block;
 }
-#menu_main .menu_content {
+#menu-main .menu-content {
   height: 100vh;
   display: flex;
   flex-flow: column nowrap;
@@ -151,23 +184,24 @@ p {
   justify-content: space-between;
   align-items: stretch;
 }
-#menu_main .menu_content .logo {
+#menu-main .menu-content .logo {
   max-height: 8%;
   margin: 0;
   margin-top: 25px;
   object-fit: scale-down;
 }
-#menu_main #btn-menu_main-close {
+#menu-main #btn-menu-main-close {
   position: absolute;
   top: 10px;
-  right: 5px;
+  right: 10px;
   min-width: 0;
-  width: 40px;
+  width: 30px;
   height: 30px;
-  padding: 0px;
-  font-size: 1.1rem;
+  padding: 0;
+  -webkit-padding-before: 2px;
+  font-size: 16pt;
 }
-#menu_main .menu_list {
+#menu-main .menu-list {
   min-width: 200px;
   margin: 0;
   padding: 25px 0;
@@ -176,13 +210,13 @@ p {
   justify-content: center;
   flex-flow: column nowrap;
 }
-#menu_main .menu_list li {
+#menu-main .menu-list li {
   margin: 15px;
   font-size: 1.5rem;
   background-color: transparent;
   border-radius: 10px;
 }
-#menu_main .accessibility_opts {
+#menu-main .accessibility-opts {
   margin-top: 30px;
   display: flex;
   align-items: center;
@@ -191,13 +225,14 @@ p {
   justify-content: flex-end;
   align-items: center;
 }
-#menu_main .accessibility_opts p {
+#menu-main .accessibility-opts p {
+  width: inherit;
   margin: 0;
   padding: 0;
   font-size: 1.25rem;
 }
-#menu_main .accessibility_opts ul {
-  width: 200px;
+#menu-main .accessibility-opts ul {
+  width: inherit;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -205,27 +240,24 @@ p {
   justify-content: space-around;
   align-items: center;
 }
-#menu_main .accessibility_opts ul li {
+#menu-main .accessibility-opts ul li {
   margin: 15px;
 }
-#menu_main .accessibility_opts button {
-  font-size: 1.25rem;
+#menu-main .accessibility-opts button {
+  font-size: 1rem;
 }
-#menu_main .accessibility_opts #accessibility_zoom_label {
-  display: none;
-}
-#menu_main .btn {
+#menu-main .btn {
   min-width: 50px;
   margin: 0;
   padding: 10px 0px;
   display: inline-block;
 }
-#menu_main .btn-link {
+#menu-main .btn-link {
   min-width: 200px;
   margin: 0;
   padding: 10px 0px;
-  border-top: 1px solid #a3440d;
-  border-bottom: 1px solid #a3440d;
+  border-top: 2px solid #a3440d;
+  border-bottom: 2px solid #a3440d;
   border-left: none;
   border-right: none;
   border-radius: 0;

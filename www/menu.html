@@ -5,24 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
     <title>First Note - Fugazzeta Soft</title>
     <link rel="stylesheet" href="css/menu.css">
+
+    <!-- ====== Font Awesome ====== -->
+    <script src="https://kit.fontawesome.com/0cfe53209a.js" crossorigin="anonymous"></script>
+    <!-- ====== END Font Awesome ====== -->
+
+    <script src="../js/main-menu.js"></script>
   </head>
+
   <body>
-    <div id="menu_main">
-      <button class="btn" id="btn-menu_main-close">X</button>
-      <div class="menu_content">
+    <div id="menu-main">
+      <button class="btn" id="btn-menu-main-close"><i class="fas fa-times"></i></button>
+      <div class="menu-content">
         <img src="../res/logo.png" class="logo" alt="Fugazzeta Soft">
-        <ul class="menu_list">
+          <ul class="menu-list">
           <li><a href="index.html" class="btn btn-link">Home</a></li>
           <li><a href="#" class="btn btn-link">Blog</a></li>
           <li><a href="#" class="btn btn-link">Notes</a></li>
         </ul>
 
-        <div class="accessibility_opts">
-          <p>Zoom</p>
-          <p id="accessibility_zoom_label">100%</p>
+        <div class="accessibility-opts">
+          <p>Current font size: 
+            <span id="accessibility-font-size-label">0 pt</span>
+          </p>
           <ul>
-            <li><button class="btn">+</button></li>
-            <li><button class="btn">-</button></li>
+            <li><button class="btn" id="accessibility-zoom-m"><i class="fas fa-minus"></i></button></li>
+            <li><button class="btn" id="accessibility-zoom-p"><i class="fas fa-plus"></i></button></li>
           </ul>
         </div>
       </div>

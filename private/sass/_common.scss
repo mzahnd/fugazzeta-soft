@@ -1,8 +1,11 @@
 @use "sass:selector";
 @use "sass:string";
 
+/* Up to 599px is mobile, from 600px is tablet */
 $-viewport-mobile-tablet:       600px;
+/* From 600px to 1023px is tablet; from 1024px is desktop */
 $-viewport-tablet-desktop:      1024px;
+/* From 1800px onward is a big desktop */
 $-viewport-desktop-desktop-big: 1800px;
 
 // Browser properties

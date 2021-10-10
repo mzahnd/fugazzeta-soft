@@ -1,3 +1,6 @@
+/* Up to 599px is mobile, from 600px is tablet */
+/* From 600px to 1023px is tablet; from 1024px is desktop */
+/* From 1800px onward is a big desktop */
 /* 
 %content-padding {
   // display: flex;
@@ -35,7 +38,7 @@
   vertical-align: middle;
   overflow: hidden;
   background-color: #03081a;
-  border: 1px solid #a3440d;
+  border: 2px solid #a3440d;
   border-radius: 10px;
   color: #cfcfcf;
   font-size: 1.25rem;
@@ -49,7 +52,7 @@
 
 .btn:hover, .btn:focus, .btn:active, .btn:visited {
   background-color: #03081a;
-  border: 1px solid #a3440d;
+  border: 2px solid #a3440d;
   color: #cfcfcf;
 }
 .btn:hover {
@@ -68,8 +71,12 @@ header, footer {
   flex-basis: auto;
 }
 
+:root {
+  --page-font-size: 12pt;
+}
+
 html {
-  font-size: 12pt;
+  font-size: var(--page-font-size, 12pt);
   font-family: Georgia, serif;
 }
 
@@ -116,11 +123,36 @@ p {
   box-sizing: border-box;
 }
 
-.menu_container {
-  background-color: #c56630;
-  height: 40vh;
+.container-menu {
   width: 100vw;
-  display: none;
+  height: 100vh;
+  max-width: 100vw;
+  position: fixed;
+  overflow: auto;
+  top: 0;
+  left: -100vw;
+  border-radius: 0;
+  transition-property: left;
+  transition-duration: 2s;
+  transition-delay: 0s;
+  transition-timing-function: ease-in-out;
+  /* Desktop */
+}
+@media screen and (min-width: 1024px) and (max-width: 1799px) {
+  .container-menu {
+    max-width: 40vw;
+    left: -40vw;
+    border-radius: 0 10px 10px 0;
+    transition-duration: 2s;
+  }
+}
+@media screen and (min-width: 1800px) {
+  .container-menu {
+    max-width: 30vw;
+    left: -30vw;
+    border-radius: 0 10px 10px 0;
+    transition-duration: 2s;
+  }
 }
 
 .footer_main {
