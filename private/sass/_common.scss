@@ -97,7 +97,7 @@ $-viewport-desktop-desktop-big: 1800px;
   }
 
   // Desktop
-  @else if $size == 'desktop' {
+  @else if $size == 'desktop-small' {
     @include -media-screen-generic($min: $-viewport-tablet-desktop,
     $max: $-viewport-desktop-desktop-big - 1) {
       @content;
@@ -107,6 +107,13 @@ $-viewport-desktop-desktop-big: 1800px;
     @include -media-screen-generic($min: $-viewport-desktop-desktop-big) {
       @content;
     }
+  }
+  @else if $size == 'desktop' {
+    @include media-screen('desktop-small') { @content; }
+    @include media-screen('desktop-big') { @content; }
+  }
+  @else {
+    @error Invalid size property $size
   }
 }
 

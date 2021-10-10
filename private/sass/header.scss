@@ -13,15 +13,6 @@ $header-main-logo-tablet-margins: 10vw;
 $font-size-def:                   16pt;
 $header-main-logo-font-size:      $font-size-def;
 
-@mixin tablet() {
-  @include common.media-screen(tablet) { @content; }
-}
-
-@mixin desktop() {
-  @include common.media-screen(desktop) { @content; }
-  @include common.media-screen(desktop-big) { @content; }
-}
-
 
 .header-main {
   $btn-margins:                   15px;
@@ -32,16 +23,16 @@ $header-main-logo-font-size:      $font-size-def;
   height: $mobile-height;
 
   /* Tablet */
-  @include tablet() {
+  @include common.media-screen(tablet) {
     height: $tablet-height;
   }
   /* Desktop */
-  @include desktop() {
+  @include common.media-screen(desktop) {
     height: $desktop-height;
   }
 
   background-color: $background-color;
-  
+
   justify-content: space-between;
   align-items: center;
   overflow: hidden;
@@ -76,7 +67,7 @@ $header-main-logo-font-size:      $font-size-def;
     line-height: 20px;
 
     /* Desktop */
-    @include desktop() {
+    @include common.media-screen(desktop) {
       font-size: $font-size-def * 0.9;
     }
 
@@ -129,7 +120,7 @@ $header-main-logo-font-size:      $font-size-def;
         text-align: center;
 
         /* Desktop */
-        @include desktop() {
+        @include common.media-screen(desktop) {
           font-size: $header-main-logo-font-size * 1.3; 
         }
       }

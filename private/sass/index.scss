@@ -31,7 +31,7 @@ p {
 }
 
 /* Desktop */
-@include common.media-screen(desktop) {
+@include common.media-screen(desktop-small) {
   p {
     font-size: 7vw;
   }

@@ -146,18 +146,28 @@ p {
 }
 @media screen and (min-width: 1024px) and (max-width: 1799px) {
   .container-menu {
-    max-width: 40vw;
-    left: -40vw;
     border-radius: 0 10px 10px 0;
     transition-duration: 2s;
+    box-shadow: 1px 5px 20px -5px #4a4a4a;
+  }
+}
+@media screen and (min-width: 1800px) {
+  .container-menu {
+    border-radius: 0 10px 10px 0;
+    transition-duration: 2s;
+    box-shadow: 1px 5px 20px -5px #4a4a4a;
+  }
+}
+@media screen and (min-width: 1024px) and (max-width: 1799px) {
+  .container-menu {
+    max-width: 40vw;
+    left: -40vw;
   }
 }
 @media screen and (min-width: 1800px) {
   .container-menu {
     max-width: 30vw;
     left: -30vw;
-    border-radius: 0 10px 10px 0;
-    transition-duration: 2s;
   }
 }
 

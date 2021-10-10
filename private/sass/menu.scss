@@ -25,6 +25,9 @@
 
     background-color: pages-style.get-color("background");
 
+    // Should be above anything else.
+    z-index: 99;
+
     ul {
         margin: 0;
         padding: 0;

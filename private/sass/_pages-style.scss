@@ -245,22 +245,22 @@ p {
 
   /* Desktop */
   @include common.media-screen(desktop) {
-    max-width: 40vw;
-    left:-40vw;     // Must be equal to max-width for transition to look smooth
-
     border-radius: 0 $border-right-radius $border-right-radius 0;
 
     transition-duration: 2s;
+
+    box-shadow: 1px 5px 20px -5px #4a4a4a;
+  }
+  @include common.media-screen(desktop-small) {
+    max-width: 40vw;
+    left:-40vw;     // Must be equal to max-width for transition to look smooth
   }
   @include common.media-screen(desktop-big) { 
     max-width: 30vw;
     left:-30vw;   // Must be equal to max-width for transition to look smooth
-
-    border-radius: 0 $border-right-radius $border-right-radius 0;
-
-    transition-duration: 2s;
   }
 }
+
 
 
 @if $-container-page-name {
