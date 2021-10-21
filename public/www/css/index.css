@@ -175,14 +175,6 @@ p {
   border: 2px solid #b9b9b9;
   border-radius: 20px;
   /* Desktop */
-  /*
-  @include common.media-screen(desktop-small) {
-
-  }
-  @include common.media-screen(desktop-big) { 
-
-  }
-  */
 }
 @media screen and (min-width: 1024px) and (max-width: 1799px) {
   .posts-section {

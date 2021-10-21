@@ -113,7 +113,10 @@ mainMenu = function() {
             function getSize() {
                 const stored = localStorage.getItem(ZOOM_VALUE_CLIENT_STORAGE);
 
-                if (stored != null) {
+                if (stored == null) {
+                    console.log("Is null")
+                    setSize(DEFAULT_FONT_SIZE[0], DEFAULT_FONT_SIZE[1]);
+                } else {
                     const value = getParsedInt(stored);
                     const units = getUnits(value, stored);
 
