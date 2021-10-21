@@ -8,34 +8,173 @@
 
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/menu.css">
+
+    <!-- ====== Font Awesome ====== -->
+    <script src="https://kit.fontawesome.com/0cfe53209a.js" crossorigin="anonymous"></script>
+    <!-- ====== END Font Awesome ====== -->
+
+    <script type="text/javascript" src="../js/common.js"></script>
+    <script type="text/javascript" src="../js/main-menu.js"></script>
+    <script type="text/javascript" src="../js/header.js"></script>
   </head>
   <body>
+    <div class="container-menu" id="menu-main">
+      <button class="btn" id="btn-menu-main-close"><i class="fas fa-times"></i></button>
+      <div class="menu-content">
+          <img src="../res/logo.png" class="logo" alt="Fugazzeta Soft">
+          <ul class="menu-list">
+          <li><a href="index.html" class="btn btn-link">Home</a></li>
+          <li><a href="#" class="btn btn-link">Blog</a></li>
+          <li><a href="#" class="btn btn-link">Notes</a></li>
+          </ul>
+
+          <div class="accessibility-opts">
+              <p>Current font size: 
+                <span id="accessibility-font-size-label">0 pt</span>
+              </p>
+              <ul>
+                <li><button class="btn" id="accessibility-zoom-m"><i class="fas fa-minus"></i></button></li>
+                <li><button class="btn" id="accessibility-zoom-p"><i class="fas fa-plus"></i></button></li>
+                <li><button class="btn" id="accessibility-zoom-reset"><i class="fas fa-undo-alt"></i></button></li>
+              </ul>
+            </div>
+      </div>
+    </div>
+
     <div id="container-page">
       <header>
-        <div class="header_main">
-          <button class="header_main_btn" id="toggle_menu_btn" 
-                    onclick="toggleMenu()">M</button>
-          <div class="header_main_separator"></div>
-          <div class="header_main_logo">
-            <a href="index.html">
-                <p>Fugazzeta Soft</p>
-                <img class="logo" src="../res/logo.png"
-                        alt="Fugazzeta Soft">
-            </a>
+        <div class="header-main" id="header-main">
+          <button class="header-main-btn" id="btn-toggle-menu"><i class="fas fa-bars"></i></button>
+          <div class="flex-separator"></div>
+          <div class="header-main-logo">
+              <a href="index.html">
+                  <p>Fugazzeta Soft</p>
+                  <img class="logo" src="../res/logo.png"
+                          alt="Fugazzeta Soft">
+              </a>
           </div>
-          <div class="header_main_separator"></div>
-        </div>
+          <div class="flex-separator"></div>
+          </div>
       </header>
 
-      <div id="index-content">
-        <div id="blog">
-          <h1>Blog</h1>
-        </div>
-        <div id="notes">
-          <h1>Notes</h1>
+      <div id="index-content" class="page-content">
+        <div id="container-sections">
+          <div class="posts-section" id="blog-section">
+            <h1>Blog</h1>
+            <div class="post">
+              <h1>This is h1</h1>
+              <h2>This is h2</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Praesent volutpat mauris a justo commodo condimentum. Donec
+                imperdiet, est et facilisis pellentesque, risus diam
+                ullamcorper risus, ut scelerisque urna est non nisl. Nulla in
+                augue malesuada metus aliquet laoreet at nec lectus. Morbi diam
+                ante, tempus nec leo sed, malesuada gravida risus. Cras vitae
+                odio velit. Orci varius natoque penatibus et magnis dis
+                parturient montes, nascetur ridiculus mus. Aenean rhoncus non
+                ex eu varius.</p>
+              <p>Fusce vel pretium enim, in condimentum purus. Aliquam at magna
+                egestas, facilisis augue ut, venenatis odio. Donec id vulputate
+                augue. In id sapien vel orci condimentum finibus. Ut neque
+                augue, ullamcorper et facilisis at, faucibus quis velit.
+                Suspendisse potenti. Sed vel aliquet sapien. Nulla lacus massa,
+                consectetur a enim nec, lobortis iaculis augue. Cras sed lorem
+                non nulla auctor molestie vel eget erat. Curabitur orci felis,
+                auctor volutpat quam id, volutpat fermentum massa. Morbi
+                pellentesque metus est, non consequat arcu molestie at.
+                Curabitur interdum neque nisi, eget efficitur ante iaculis id.
+                Nam vitae sapien sed nunc pretium cursus sed ut quam.</p>
+              <p>Integer eu ultricies neque. Nam vel varius massa. Ut feugiat
+                accumsan commodo. Quisque sollicitudin a dolor sit amet
+                pulvinar. Curabitur volutpat dolor at sagittis faucibus.
+                Maecenas odio neque, placerat ornare cursus ac, ullamcorper
+                sollicitudin leo. Nunc congue a augue ut consectetur. Donec sed
+                malesuada augue. Proin sed ligula in quam suscipit rhoncus
+                bibendum non urna. Aenean id justo purus. Nullam elementum
+                maximus quam vel sodales.</p>
+              <p>Fusce pharetra mauris in neque dictum, a placerat ante
+                pulvinar. Mauris nec turpis imperdiet, pulvinar lorem nec,
+                eleifend dolor. Phasellus fringilla ornare elit, sit amet
+                viverra ante varius luctus. Suspendisse ac pharetra lorem.
+                Pellentesque habitant morbi tristique senectus et netus et
+                malesuada fames ac turpis egestas. Sed et fringilla lorem, id
+                iaculis odio. Nulla nec elit quis nunc pulvinar gravida.
+                Pellentesque pulvinar nisi vitae metus finibus, in commodo enim
+                dignissim. Morbi risus orci, semper et viverra in, malesuada ut
+                lacus. Curabitur finibus purus vitae lorem blandit dictum.
+                Vivamus elementum orci ipsum, vulputate mattis dui imperdiet
+                et.</p>
+              <p>Sed ut condimentum quam. Suspendisse congue, quam eu dapibus
+                eleifend, mi neque pretium lectus, id dictum neque justo non
+                felis. Integer ullamcorper magna eros, at tincidunt mauris
+                mattis id. Donec a massa diam. Mauris efficitur risus diam,
+                quis pulvinar eros laoreet id. Praesent semper quam vel ipsum
+                tincidunt, et sagittis augue dapibus. Ut commodo gravida orci,
+                nec vulputate purus volutpat sit amet. Vivamus luctus ante a
+                porttitor pellentesque.</p>
+            </div>
+          </div>
+          <div class="posts-section" id="notes-section">
+            <h1>Notes</h1>
+
+            <div class="post">
+              <h1>Another h1</h1>
+              <h2>Another h2</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Praesent volutpat mauris a justo commodo condimentum. Donec
+                imperdiet, est et facilisis pellentesque, risus diam
+                ullamcorper risus, ut scelerisque urna est non nisl. Nulla in
+                augue malesuada metus aliquet laoreet at nec lectus. Morbi diam
+                ante, tempus nec leo sed, malesuada gravida risus. Cras vitae
+                odio velit. Orci varius natoque penatibus et magnis dis
+                parturient montes, nascetur ridiculus mus. Aenean rhoncus non
+                ex eu varius.</p>
+              <p>Fusce vel pretium enim, in condimentum purus. Aliquam at magna
+                egestas, facilisis augue ut, venenatis odio. Donec id vulputate
+                augue. In id sapien vel orci condimentum finibus. Ut neque
+                augue, ullamcorper et facilisis at, faucibus quis velit.
+                Suspendisse potenti. Sed vel aliquet sapien. Nulla lacus massa,
+                consectetur a enim nec, lobortis iaculis augue. Cras sed lorem
+                non nulla auctor molestie vel eget erat. Curabitur orci felis,
+                auctor volutpat quam id, volutpat fermentum massa. Morbi
+                pellentesque metus est, non consequat arcu molestie at.
+                Curabitur interdum neque nisi, eget efficitur ante iaculis id.
+                Nam vitae sapien sed nunc pretium cursus sed ut quam.</p>
+              <p>Integer eu ultricies neque. Nam vel varius massa. Ut feugiat
+                accumsan commodo. Quisque sollicitudin a dolor sit amet
+                pulvinar. Curabitur volutpat dolor at sagittis faucibus.
+                Maecenas odio neque, placerat ornare cursus ac, ullamcorper
+                sollicitudin leo. Nunc congue a augue ut consectetur. Donec sed
+                malesuada augue. Proin sed ligula in quam suscipit rhoncus
+                bibendum non urna. Aenean id justo purus. Nullam elementum
+                maximus quam vel sodales.</p>
+              <p>Fusce pharetra mauris in neque dictum, a placerat ante
+                pulvinar. Mauris nec turpis imperdiet, pulvinar lorem nec,
+                eleifend dolor. Phasellus fringilla ornare elit, sit amet
+                viverra ante varius luctus. Suspendisse ac pharetra lorem.
+                Pellentesque habitant morbi tristique senectus et netus et
+                malesuada fames ac turpis egestas. Sed et fringilla lorem, id
+                iaculis odio. Nulla nec elit quis nunc pulvinar gravida.
+                Pellentesque pulvinar nisi vitae metus finibus, in commodo enim
+                dignissim. Morbi risus orci, semper et viverra in, malesuada ut
+                lacus. Curabitur finibus purus vitae lorem blandit dictum.
+                Vivamus elementum orci ipsum, vulputate mattis dui imperdiet
+                et.</p>
+              <p>Sed ut condimentum quam. Suspendisse congue, quam eu dapibus
+                eleifend, mi neque pretium lectus, id dictum neque justo non
+                felis. Integer ullamcorper magna eros, at tincidunt mauris
+                mattis id. Donec a massa diam. Mauris efficitur risus diam,
+                quis pulvinar eros laoreet id. Praesent semper quam vel ipsum
+                tincidunt, et sagittis augue dapibus. Ut commodo gravida orci,
+                nec vulputate purus volutpat sit amet. Vivamus luctus ante a
+                porttitor pellentesque.</p>
+            </div>
+          </div>
         </div>
       </div>
 
+      <div class="flex-separator"></div>
       <footer>
         <div class="footer footer_main">
           <p>Created by Martín E. Zahnd</p>

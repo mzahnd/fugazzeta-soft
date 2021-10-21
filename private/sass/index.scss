@@ -1,44 +1,67 @@
-@use "sass:map";
-@use "sass:math";
+@use "sass:color";
 @use 'common';
 
 @use 'pages-style' with (
   $-container-page-name: "#container-page",
 );
 
-$button-border-radius: 15px;
-$margins-top-bottom: 15px;
+#container-sections {
 
-$btn-padding-top-bottom: 25px;
-$btn-padding-left-right: 15px;
+  display: flex;
 
-p {
-  @include common.flex-item-align-center;
+  @include common.flex-column;
 
-  text-align: center;
-  font-size: max(55px, 12vw);
-}
+  /* Desktop */
+  @include common.media-screen(desktop) {
+    @include common.flex-row-nw;
+  }
 
+  align-items: center;
+  justify-content: space-evenly;
 
-/* Tablet */
-@include common.media-screen(tablet) {
-  #welcome_container {
-    .btn {
-      width: 50%;
-      padding: $btn-padding-top-bottom*1.5 $btn-padding-left-right*1.5;
-    }
+  > div {
+    display: flex;
+    @include common.flex-column;
   }
 }
 
-/* Desktop */
-@include common.media-screen(desktop-small) {
-  p {
-    font-size: 7vw;
-  }
-}
+.posts-section {
+  max-width: 90vw;
 
-@include common.media-screen(desktop-big) {
+  margin: 25px 0;
+  padding: 0 15px;
+  
+  @include common.box-borderbox;
+  
+  border: 2px solid color.adjust(pages-style.get-color("border"), $blackness: 25%);
+  border-radius: 20px;
+  
+  /* Desktop */
+  @include common.media-screen(desktop) {
+    max-width: 45vw;
+  }
+
+  /*
+  @include common.media-screen(desktop-small) {
+  
+  }
+  @include common.media-screen(desktop-big) { 
+
+  }
+  */
+
+  > h1 {
+    margin: 1rem 0 0.5rem 0;
+
+    text-align: center;
+    font-family: "Brush Script MT", cursive, serif;
+    font-size: 2rem;
+    font-style: oblique;
+
+    color: pages-style.get-color("header-main");
+  }
+
   p {
-    font-size: 5vw;
+    text-align: justify;
   }
 }

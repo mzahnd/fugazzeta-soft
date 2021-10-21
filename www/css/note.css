@@ -7,69 +7,6 @@
   min-height: 100vh;
 }
 
-/* 
-%content-padding {
-  // display: flex;
-  // flex-grow: 1;
-  // flex-shrink: 1;
-  // flex-basis: auto;
-  // flex-flow: column nowrap;
-
-  // div {
-  //   @include common.flex-item-align-center;
-  //   flex-grow: 1;
-  //   flex-shrink: 1;
-  //   flex-basis: auto;
-  // }
-
-  // > p {
-  //   // @include common.flex-item-align-center;
-  //   // width: 100%;
-
-  //   // padding: 0;
-  //   // margin: auto;
-  //   // text-decoration: none;
-
-  //   color: get-color("text");
-  // }
-
-  // > h1, h2, h3, h4, h5, h6 { 
-  //   color: get-color("text");
-  // }  
-}
-*/
-.btn {
-  margin: 0;
-  padding: 10px 0;
-  vertical-align: middle;
-  overflow: hidden;
-  background-color: #03081a;
-  border: 2px solid #a3440d;
-  border-radius: 10px;
-  color: #cfcfcf;
-  font-size: 1.25rem;
-  text-align: center;
-  text-decoration: none;
-  cursor: pointer;
-}
-.btn:focus:not(.focus-visible) {
-  outline: none;
-}
-
-.btn:hover, .btn:focus, .btn:active, .btn:visited {
-  background-color: #03081a;
-  border: 2px solid #a3440d;
-  color: #cfcfcf;
-}
-.btn:hover {
-  background-color: #963f0d;
-  border-color: #ea6213;
-}
-.btn:active {
-  background-color: #963f0d;
-  border-color: #ea6213;
-}
-
 header, footer {
   display: flex;
   flex-grow: 0;
@@ -125,8 +62,36 @@ p {
   font-size: 1rem;
 }
 
-*::before, *::after {
-  box-sizing: border-box;
+.btn {
+  margin: 0;
+  padding: 10px 0;
+  vertical-align: middle;
+  overflow: hidden;
+  background-color: #03081a;
+  border: 2px solid #a3440d;
+  border-radius: 10px;
+  color: #cfcfcf;
+  font-size: 1.25rem;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+.btn:focus:not(.focus-visible) {
+  outline: none;
+}
+
+.btn:hover, .btn:focus, .btn:active, .btn:visited {
+  background-color: #03081a;
+  border: 2px solid #a3440d;
+  color: #cfcfcf;
+}
+.btn:hover {
+  background-color: #963f0d;
+  border-color: #ea6213;
+}
+.btn:active {
+  background-color: #963f0d;
+  border-color: #ea6213;
 }
 
 .container-menu {
@@ -169,6 +134,10 @@ p {
     max-width: 30vw;
     left: -30vw;
   }
+}
+
+.flex-separator {
+  flex-grow: 9;
 }
 
 .code {
@@ -220,6 +189,10 @@ h1, h2, h3, h4, h5, h6 {
   color: #cfcfcf;
 }
 
+h1 {
+  color: #d06425;
+}
+
 a {
   max-width: 90vw;
   padding: 0px 0;
@@ -231,6 +204,63 @@ a {
   font-family: Georgia, serif;
   line-height: 1.4;
   display: inline-block;
+}
+
+.footnote {
+  color: red;
+  display: inline-block;
+  position: relative;
+}
+.footnote .footnote-number {
+  width: 1.25rem;
+  display: inline-block;
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
+  padding-bottom: 2px;
+  color: #e4e4e4;
+  background-color: #186bb8;
+  border-radius: 100%;
+  text-align: center;
+}
+.footnote .footnote-text {
+  width: min(50vw, 175px);
+  height: auto;
+  max-height: min(50vh, 125px);
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
+  padding: 0.8rem 1rem;
+  color: #cfcfcf;
+  background-color: #030303;
+  border: 2px solid #e7e6e6;
+  border-radius: 15px 0 0 0;
+  position: absolute;
+  z-index: 10;
+  overflow-y: auto;
+  bottom: 125%;
+  margin-left: calc(-1 * min(50vw, 175px) / 2);
+  scrollbar-color: #5f5f5f transparent;
+  scrollbar-width: thin;
+}
+.footnote .footnote-text::-webkit-scrollbar {
+  width: 5px;
+}
+.footnote .footnote-text::-webkit-scrollbar-track {
+  background: transparent;
+}
+.footnote .footnote-text::-webkit-scrollbar-thumb {
+  background: #5f5f5f;
+  border-radius: 50px;
+}
+.footnote .footnote-text::-webkit-scrollbar-thumb:hover {
+  background: #dfdfdf;
 }
 
 /*# sourceMappingURL=note.css.map */

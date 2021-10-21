@@ -25,6 +25,13 @@ $-viewport-desktop-desktop-big: 1800px;
   }
 }
 
+
+// Boxes
+@mixin box-borderbox() {
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box;         /* Opera/IE 8+ */
+}
 // Buttons
 @mixin btn-no-border-chrome($btn-class) {
     @at-root #{selector.unify($btn-class, ":focus:not(.focus-visible)")} {

@@ -14,8 +14,10 @@
     <script src="https://kit.fontawesome.com/0cfe53209a.js" crossorigin="anonymous"></script>
     <!-- ====== END Font Awesome ====== -->
 
-    <script type="text/javascript" src="../../js/header.js"></script>
+    <script type="text/javascript" src="../../js/common.js"></script>
     <script type="text/javascript" src="../../js/main-menu.js"></script>
+    <script type="text/javascript" src="../../js/header.js"></script>
+    
   </head>
   <body>
     <div class="container-menu" id="menu-main">
@@ -35,6 +37,7 @@
                 <ul>
                   <li><button class="btn" id="accessibility-zoom-m"><i class="fas fa-minus"></i></button></li>
                   <li><button class="btn" id="accessibility-zoom-p"><i class="fas fa-plus"></i></button></li>
+                  <li><button class="btn" id="accessibility-zoom-reset"><i class="fas fa-undo-alt"></i></button></li>
                 </ul>
               </div>
         </div>
@@ -79,7 +82,11 @@
         </div>
 
         <h2> Fixing missing .so files</h2>
-        <p>Run hp-setup and log its stderr to a file.</p>
+        <p>Run hp-setup and log its stderr 
+            <span class="footnote">
+                <span class="footnote-number">1</span>
+                <span class="footnote-text">I'm a very very very very very very very very very very very very very very very very very very long footnote</span>
+            </span> to a file.</p>
         <p>Be aware that after choosing the printer, the "missing pluggin" o
             any other screen might not be seen when doing this.</p>
         <div class="code">
@@ -145,6 +152,7 @@
         <a href="https://bugs.launchpad.net/hplip/+bug/1084062">No PPD found for model deskjet_4620 using new/old algorithm</a>
     </div>
 
+    <div class="flex-separator"></div>
     <footer>
         <div class="footer footer_main">
         <p>Created by Martín E. Zahnd</p>
