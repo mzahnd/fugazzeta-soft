@@ -1,0 +1,45 @@
+title: 'Fugazzeta Soft'
+description: 'Another web page on the internet'
+author: 'Martín E. Zahnd'
+developer: 'Martín E. Zahnd'
+url: "https://example.com" # the base hostname & protocol for your site
+
+logo-path: '/res/logo.png'
+
+exclude: [
+    private/,
+    sass/,
+    .gitignore,
+    build.sh
+  ]
+
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter_opts:
+    default_lang: plain
+    guess_lang: true
+    line_numbers: true
+    #
+    # From https://github.com/rouge-ruby/rouge#configuration
+    start_line: 1 # the number of the first row
+    line_id: 'line-%i' # a sprintf template for id attribute with current line number
+    line_class: 'lineno' # a CSS class for each table-row
+    table_class: 'rouge-line-table' # a CSS class for the table
+    gutter_class: 'rouge-gutter' # a CSS class for the line-number cell
+    code_class: 'rouge-code' # a CSS class for the code cell
+
+permalink: /:collection/:year/:month/:day/:title:output_ext
+collections_dir: collections
+collections:
+  posts:
+    output: true
+    permalink: /blog/:year/:month/:day/:title:output_ext
+
+  notes:
+    output: true
+    permalink: /notes/:title:output_ext
+
+plugins:
+  - jekyll-sitemap  # Run last !

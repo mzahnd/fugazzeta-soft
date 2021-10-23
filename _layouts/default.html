@@ -1,0 +1,65 @@
+---
+---
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" 
+        content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    {% if page.title %}
+      <title>{{ page.title }} - {{ site.title }}</title>
+    {% else %}
+      <title>{{ site.title }}</title>
+    {% endif %}
+
+    <!--
+      Included files have their own css, js files and will not be 
+      appear here. 
+    -->
+
+    <!-- ====== CSS Files ====== -->
+    {% for ccss in layout.custom_css %}
+    <link rel="stylesheet" href="/css/{{ ccss }}">
+    {% endfor %}
+    {% for ccss in page.custom_css %}
+    <link rel="stylesheet" href="/css/{{ ccss }}">
+    {% endfor %}
+    <!-- ====== END CSS Files ====== -->
+
+    <!-- ====== Font Awesome ====== -->
+    <script 
+        src="https://kit.fontawesome.com/0cfe53209a.js"
+        crossorigin="anonymous">
+    </script>
+    <!-- ====== END Font Awesome ====== -->
+
+    <!-- ====== JS Files ====== -->
+    <script type="text/javascript" src="/js/common.js"></script>
+    {% for cjs in layout.custom_js %}
+    <script type="text/javascript" src="/js/{{ cjs }}"></script>
+    {% endfor %}
+    {% for cjs in page.custom_js %}
+    <script type="text/javascript" src="/js/{{ cjs }}"></script>
+    {% endfor %}
+    <!-- ====== END JS Files ====== -->
+  </head>
+  <body>
+    {% include menu.html classes="container-menu" %}
+
+    <div id="container-page">
+        {% include header.html %}
+
+        {% if page.content-id %}
+          <div class="page-content" id="{{ page.content-id }}">
+        {% else %}
+          <div class="page-content">
+        {% endif %}
+            {{ content }}
+        </div>
+
+        <div class="flex-separator"></div>
+        {% include footer.html %}
+    </div>
+  </body>
+</html>

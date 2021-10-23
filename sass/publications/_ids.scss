@@ -1,0 +1,20 @@
+@use "sass:color";
+
+@use 'common';
+@use 'pages-style';
+
+$mobile-left-right-margin: 0 !default;
+$desktop-left-right-margin: 1rem 0 !default;
+
+#post-date, #post-tags {
+    margin: 0 $mobile-left-right-margin;
+
+    /* Desktop */
+    @include common.media-screen(desktop) {
+      margin: 0 $desktop-left-right-margin;
+    }
+
+    text-align: left;
+
+    color: color.adjust(pages-style.get-color("text"), $blackness: 25%);
+}

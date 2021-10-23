@@ -1,0 +1,28 @@
+@use 'common';
+@use 'pages-style';
+
+.footer {
+  &_main {
+    @include common.flex-item-align-center;
+    @include common.flex-column;
+
+    width: 100vw;
+  }
+
+  p {
+    width: 90vw;
+    
+    font-family: "Lucida Console", "Courier New", monospace;
+    font-size: 0.70rem;
+
+    letter-spacing: 1px;
+    word-spacing: 5px;
+
+    text-align: center;
+    vertical-align: top;
+    text-decoration: none;
+
+    margin: 0.75rem 0 .15rem;
+    padding: 0;
+  }
+}

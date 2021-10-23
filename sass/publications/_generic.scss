@@ -1,0 +1,245 @@
+@use 'sass:color';
+@use 'sass:math';
+
+@use 'common';
+@use 'pages-style' with (
+    $-container-page-name: "#container-page",
+);
+
+$content-width: 90vw;
+$content-right-left-margin: math.div(100vw - $content-width, 2);
+
+@use 'ids' with (
+    $mobile-left-right-margin:  calc($content-right-left-margin + 1rem),
+    $desktop-left-right-margin: calc($content-right-left-margin + 1rem)
+);
+
+%textdefaults {
+    width: $content-width;
+    padding: 0;
+    margin: 0.2rem $content-right-left-margin;
+
+    color: pages-style.get-color("text");
+    text-align: justify;
+    text-decoration: none;
+    font-size: 1rem;
+    font-family: Georgia, serif;
+}
+
+code {
+    max-width: calc($content-width - 10px);
+    min-width: calc($content-width - 10px);
+
+    margin: 1rem 5vw;
+    padding: 1rem 0 1rem 5px;
+  
+    display: block;
+  
+    text-align: left;
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-family: monospace, "Courier New";
+  
+    overflow-x: auto;
+    white-space: pre;
+  
+    border: 0;
+    border-left: 5px solid pages-style.get-color("border-code");
+    background-color: pages-style.get-color("background-code-box");
+  
+    a {
+      line-height: 1rem;
+    }
+    pre {
+      margin: 0;
+      font-family: inherit;
+      white-space: inherit;
+    }
+    
+    // Line-number cell. Class name set in _config.yml
+    .rouge-gutter {
+      margin:0;
+      padding: 0;
+      padding-left: 2px;
+      padding-right: 0.5rem;
+      color: color.adjust(pages-style.get-color("text"), $blackness: 35%);
+    }
+  }
+  
+
+p {
+    @extend %textdefaults;
+
+    code {
+        /* TODO: Fix inline-code */
+        display: inline-block;
+
+        /* Desktop */
+        @include common.media-screen(desktop) {
+            display: inline;
+        }
+
+        background-color: color.adjust(
+            pages-style.get-color("background-code-box"),
+            $blackness: 5%
+        );
+        text-decoration: none;
+        font-size: 0.9rem;
+        font-family: monospace, "Courier New";
+
+        border: 1px solid color.adjust(
+                            pages-style.get-color("background-code-box"),
+                            $lightness: 5%
+        );
+        line-height: 1.7;
+        padding: 0px 3px;
+        margin: 0;
+
+        overflow-wrap: break-word;
+    }
+
+    > a {
+        display: inline;
+        width: 0;
+        margin: 0;
+        padding: 0;
+    }
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0.5rem 5vw;
+    color: pages-style.get-color("text");
+}
+
+h1 {
+    color: pages-style.get-color("header-main");
+}
+
+a {
+    max-width: $content-width;
+
+    margin: 0.2rem calc(5vw - 2*0.2rem);
+  
+    text-decoration: underline;
+    font-size: 1rem;
+  
+    cursor: pointer;
+}
+
+ul {
+    width: $content-width;
+    max-width: $content-width;
+    padding: 0;
+    margin: 0.3rem $content-right-left-margin;
+
+    li {
+        @extend %textdefaults;
+
+        width: auto;
+        margin: 0 2rem;
+
+        /* Desktop */
+        @include common.media-screen(desktop) {
+            margin: 0 3rem;
+        }
+    }
+}
+
+blockquote {
+    @extend %textdefaults;
+
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding: 0;
+    
+    border: 2px solid pages-style.get-color("blockquote-border");
+    border-radius: 10px;
+    
+    p {
+        width: auto;
+        margin: 0.75rem 1rem;
+
+        font-style: oblique;
+        line-height: 1.5rem;
+        word-spacing: 0.05rem;
+
+        /* Desktop */
+        @include common.media-screen(desktop) {
+            margin: 0.75rem 1.5rem;
+
+            line-height: 1.5rem;
+            word-spacing: 0.05rem;
+        }
+    }
+}
+
+.footnote {
+    color: red;
+    display: inline-block;
+    position: relative;
+
+    .footnote-number {
+        width: 1.25rem;
+
+        display: inline-block;
+        @include common.box-borderbox;
+        padding-bottom: 2px;
+
+        color: pages-style.get-color("footnote-text");
+
+        background-color: pages-style.get-color("footnote-background");
+        border-radius: 100%;
+
+        text-align: center;
+    }
+
+    .footnote-text {
+        $text-container-width: min(50vw, 175px);
+        $text-container-height: min(50vh, 125px);
+        $border-radius: 15px;
+
+        width: $text-container-width;
+        height: auto;
+        max-height: $text-container-height;
+                
+        @include common.box-borderbox;
+        padding: 0.8rem 1rem;
+        
+        color: pages-style.get-color("text");
+
+        background-color: color.adjust(pages-style.get-color("background"),
+                                        $blackness: 15%);
+        border: 2px solid pages-style.get-color("border");
+        border-radius: $border-radius 0 0 0;
+
+        position: absolute;
+        z-index: 10;
+        overflow-y: auto;
+        
+        bottom: 125%;
+        margin-left: calc(-1 * $text-container-width / 2);
+
+        // Scrollbars
+
+        // Chrome
+        $scrollbar-track-color: #5f5f5f;
+
+        &::-webkit-scrollbar {
+            width: 5px;
+        }
+        &::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        &::-webkit-scrollbar-thumb {
+            background: $scrollbar-track-color;
+            border-radius: 50px;
+        }
+        &::-webkit-scrollbar-thumb:hover {
+            background: color.adjust($scrollbar-track-color, $lightness: 50%);
+        }
+
+        // Firefox
+        scrollbar-color: $scrollbar-track-color transparent;
+        scrollbar-width: thin;
+    }
+}

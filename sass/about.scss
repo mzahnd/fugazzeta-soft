@@ -1,0 +1,4 @@
+@use 'common';
+@use 'pages-style' with (
+  $-container-page-name: "#container-page",
+);

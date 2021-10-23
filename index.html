@@ -1,0 +1,61 @@
+---
+layout: default
+
+content-id: index-content
+custom_css: [index.css]
+custom_js: []
+---
+{% assign latest_post = site.posts.last %}
+{% assign latest_note = site.notes.last %}
+
+<div id="container-publications-by-type">
+  <div class="container-publication"id="blog-section">
+    <h1 class="publication-title"><a href="/blog/">Blog</a></h1>
+    <h3 class="publication-subtitle">Latest post</h3>
+    <ul>
+      <li>
+          <h1><a href="{{ latest_post.url }}">{{ latest_post.title }}</a></h1>
+          <p id="post-date">Published: {{ latest_post.date }}</p>
+          {% if latest_post.tags.size > 0 %}
+          <p id="post-tags">Tags: 
+              {% for tag in latest_post.tags %}
+                  {{ tag }}{% if tag != latest_post.tags.last %}, {% endif %}
+              {% endfor %}
+          </p>
+          {% endif %}
+          {{ latest_post.excerpt }}
+      </li>
+    </ul>
+    <div class="flex-separator"></div>
+    <h2 class="publication-more">
+      <a href="/blog/" class="btn btn-link">
+        More posts
+      </a>
+    </h2>
+  </div>
+
+  <div class="container-publication"id="notes-section">
+    <h1 class="publication-title"><a href="/notes/">Notes</a></h1>
+    <h3 class="publication-subtitle">Latest note</h3>
+    <ul>
+      <li>
+          <h1><a href="{{ latest_note.url }}">{{ latest_note.title }}</a></h1>
+          <p id="post-date">Published: {{ latest_note.date }}</p>
+          {% if latest_note.tags.size > 0 %}
+          <p id="post-tags">Tags: 
+              {% for tag in latest_note.tags %}
+                  {{ tag }}{% if tag != latest_note.tags.last %}, {% endif %}
+              {% endfor %}
+          </p>
+          {% endif %}
+          {{ latest_note.excerpt }}
+      </li>
+    </ul>
+    <div class="flex-separator"></div>
+    <h2 class="publication-more">
+      <a href="/notes/" class="btn btn-link">
+        More notes
+      </a>
+    </h2>
+  </div>
+</div>

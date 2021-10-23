@@ -1,0 +1,10 @@
+*.lock
+.bundle/
+
+.jekyll-cache/
+.jekyll-metadata
+
+private/
+_drafts/
+_site/
+css/

@@ -1,0 +1,31 @@
+---
+layout: default
+
+custom_css: [notes/index.css]
+custom_js: []
+---
+
+<div class="container-publication">
+    <h1 class="publication-title">Notes</h1>
+    <ul>
+    {% for note in site.notes %}
+    <li {% if note == site.notes.last %} style="border-bottom: none;" {% endif %}>
+        <h1><a href="{{ note.url }}">{{ note.title }}</a></h1>
+        <p id="post-date">Published: {{ note.date }}</p>
+        {% if note.tags.size > 0 %}
+        <p id="post-tags">Tags: 
+            {% for tag in note.tags %}
+                {{ tag }}{% if tag != note.tags.last %}, {% endif %}
+            {% endfor %}
+        </p>
+        {% endif %}
+        <details>
+            <summary>Brief</summary>
+            {{ note.excerpt }}
+            <a href="{{ note.url }}">Keep reading...</a>
+        </details>
+        
+    </li>
+    {% endfor %}
+    </ul>
+</div>

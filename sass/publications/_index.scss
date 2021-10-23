@@ -1,0 +1,7 @@
+@use "sass:color";
+
+@use 'common';
+@use 'pages-style' with (
+  $-container-page-name: "#container-page",
+);
+@use 'container';

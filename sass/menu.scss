@@ -1,0 +1,152 @@
+@use 'sass:color';
+@use 'sass:math';
+
+@use 'common';
+@use 'pages-style';
+
+#menu-main {
+    $menu-min-width: 200px;
+
+    $btn-background-color: pages-style.get-color("btn-background");
+    $btn-margins: 15px; // Around buttons, set in 'li'
+    // Inside buttons, set in '.btn'. left and right padding: $menu-min-width
+    $btn-padding: 10px 0px;
+    $btn-border-radius: 10px;
+
+    // min-width: $menu-min-width;
+    min-height: 100vh;
+
+    display: flex;
+    @include common.flex-row;
+
+    justify-content: space-between;
+    align-items: stretch;
+
+    overflow: auto;
+
+    background-color: pages-style.get-color("background");
+
+    // Should be above anything else.
+    z-index: 99;
+
+    ul {
+        margin: 0;
+        padding: 0;
+
+        background-color: transparent;
+
+        list-style-type: none;
+        text-align: center;
+    }
+
+    li {
+        margin: 0;
+        padding: 0;
+        display: inline-block;
+    }
+
+    .menu-content {
+        height: 100vh;
+
+        display: flex;
+        @include common.flex-column;
+        flex-grow: 9;
+
+        justify-content: space-between;
+        align-items: stretch;
+
+        .logo {
+            max-height: 8%;
+
+            margin: 0;
+            margin-top: 25px;
+            
+            object-fit: scale-down;
+        }
+    }
+
+    #btn-menu-main-close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+
+        min-width: 0; // Override min-width in '.btn'
+        width: 30px;
+        height: 30px;
+        
+        padding: 0;
+        -webkit-padding-before: 2px; // In Chrome looks out of place
+
+        font-size: 16pt;
+    }
+
+    .menu-list {
+        min-width: $menu-min-width;
+
+        margin: 0;
+        padding: 25px 0;
+
+        @include common.flex-item-align-center;
+        @include common.flex-column;
+
+        li {
+            margin: $btn-margins;
+            
+            font-size: 1.5rem;
+            background-color: transparent;
+
+            border-radius: $btn-border-radius;
+        }
+    }
+
+    .accessibility-opts {
+        margin-top: 30px;
+
+        @include common.flex-item-align-center;
+        @include common.flex-column;
+
+        justify-content: flex-end;
+        align-items: center;
+
+        p {
+            width: inherit;
+
+            margin: 0;
+            padding: 0;
+
+            font-size: 1.25rem;
+        }
+
+        ul {
+            width: inherit;
+
+            @include common.flex-item-align-center;
+            @include common.flex-row;
+            
+            justify-content: space-around;
+            align-items: center;
+
+            li {
+                margin: $btn-margins;
+            }
+        }
+
+        button {
+            font-size: 1rem;
+        }
+
+    }
+
+    .btn {
+        min-width: math.div($menu-min-width, 4);
+        
+        margin: 0;
+        padding: $btn-padding;
+
+        display: inline-block;
+        
+        &-link {
+            min-width: $menu-min-width;
+        }
+    }
+}
