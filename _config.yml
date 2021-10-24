@@ -16,7 +16,7 @@ exclude: [
 markdown: kramdown
 highlighter: rouge
 kramdown:
-  input: GFM
+  input: kramdown
   syntax_highlighter_opts:
     default_lang: plain
     guess_lang: true
@@ -41,5 +41,17 @@ collections:
     output: true
     permalink: /notes/:title:output_ext
 
+katex:
+  # Path used to search for katex.min.js
+  # js_path: "{{ Gem::lib_path }}/js"
+  rendering_options:
+    # Default KaTeX rendering options. 
+    # See https://github.com/Khan/KaTeX#rendering-options
+    # throwOnError - set to false if you want rendering to output error as 
+    # text rather than a build error
+    throw_error: true         
+    error_color: "#cc0000"
+
 plugins:
+  - jekyll-katex
   - jekyll-sitemap  # Run last !

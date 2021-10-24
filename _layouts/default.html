@@ -19,6 +19,10 @@
     -->
 
     <!-- ====== CSS Files ====== -->
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/menu.css">
+    
     {% for ccss in layout.custom_css %}
     <link rel="stylesheet" href="/css/{{ ccss }}">
     {% endfor %}
@@ -26,13 +30,6 @@
     <link rel="stylesheet" href="/css/{{ ccss }}">
     {% endfor %}
     <!-- ====== END CSS Files ====== -->
-
-    <!-- ====== Font Awesome ====== -->
-    <script 
-        src="https://kit.fontawesome.com/0cfe53209a.js"
-        crossorigin="anonymous">
-    </script>
-    <!-- ====== END Font Awesome ====== -->
 
     <!-- ====== JS Files ====== -->
     <script type="text/javascript" src="/js/common.js"></script>
@@ -43,6 +40,37 @@
     <script type="text/javascript" src="/js/{{ cjs }}"></script>
     {% endfor %}
     <!-- ====== END JS Files ====== -->
+
+    <!-- ====== Font Awesome ====== -->
+    <script 
+        src="https://kit.fontawesome.com/0cfe53209a.js"
+        crossorigin="anonymous">
+    </script>
+    <!-- ====== END Font Awesome ====== -->
+
+    {% if page.equations %}
+    <!--- ====== KaTeX ====== -->
+    <link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.css"
+      integrity="sha384-zTROYFVGOfTw7JV7KUu8udsvW2fx4lWOsCEDqhBreBwlHI4ioVRtmIvEThzJHGET"
+      crossorigin="anonymous">
+
+    <!-- The loading of KaTeX is deferred to speed up page rendering -->
+    <script defer
+      src="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.js"
+      integrity="sha384-GxNFqL3r9uRJQhR+47eDxuPoNE7yLftQM8LcxzgS4HT73tp970WS/wV5p8UzCOmb"
+      crossorigin="anonymous">
+    </script>
+
+    <!-- To automatically render math in text elements, include the auto-render extension: -->
+    <script defer
+      src="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/contrib/auto-render.min.js"
+      integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl"
+      crossorigin="anonymous"
+      onload="renderMathInElement(document.body);">
+    </script>
+    <!-- ====== END KaTeX ====== -->
+    {% endif %}
   </head>
   <body>
     {% include menu.html classes="container-menu" %}

@@ -3,11 +3,11 @@
 
 @use 'common';
 
-$-container-full-page-name:        null !default; // Menu + Content container
+$-container-full-page-name:     null !default; // Menu + Content container
 $-container-page-name:          null !default; // Header + Content + Footer
-// $content-padding-div-name:    null !default;
+// $content-padding-div-name:      null !default;
 
-$-logo-img-path:                   "/res/logo.png";
+$-logo-img-path:                "/res/logo.png";
 
 $-color-palette-named: (
   "background":             #03081a,

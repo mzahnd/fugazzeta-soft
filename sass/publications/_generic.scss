@@ -26,6 +26,10 @@ $content-right-left-margin: math.div(100vw - $content-width, 2);
     font-family: Georgia, serif;
 }
 
+#post-title {
+    text-align: center;
+}
+
 code {
     max-width: calc($content-width - 10px);
     min-width: calc($content-width - 10px);
@@ -70,14 +74,20 @@ code {
 p {
     @extend %textdefaults;
 
+    /* Inline-code */
     code {
-        /* TODO: Fix inline-code */
-        display: inline-block;
+        width: auto;
+        min-width: unset;
+        
+        margin: 0;
+        padding: 0px 3px;
 
-        /* Desktop */
-        @include common.media-screen(desktop) {
-            display: inline;
-        }
+        display: inline-flex;
+
+        // /* Desktop */
+        // @include common.media-screen(desktop) {
+        //     display: inline;
+        // }
 
         background-color: color.adjust(
             pages-style.get-color("background-code-box"),
@@ -92,9 +102,7 @@ p {
                             $lightness: 5%
         );
         line-height: 1.7;
-        padding: 0px 3px;
-        margin: 0;
-
+    
         overflow-wrap: break-word;
     }
 
@@ -126,7 +134,7 @@ a {
     cursor: pointer;
 }
 
-ul {
+ol, ul {
     width: $content-width;
     max-width: $content-width;
     padding: 0;
@@ -141,6 +149,13 @@ ul {
         /* Desktop */
         @include common.media-screen(desktop) {
             margin: 0 3rem;
+        }
+
+        p {
+            margin: 0;
+        }
+        a {
+            margin: 0;
         }
     }
 }
@@ -173,73 +188,43 @@ blockquote {
     }
 }
 
+// Footnote marker
 .footnote {
-    color: red;
+    width: 1.15rem;
+    margin: 0 0.3rem;
+
     display: inline-block;
+    @include common.box-borderbox;
+    padding-bottom: 2px;
+
+    color: pages-style.get-color("footnote-text");
+
+    background-color: pages-style.get-color("footnote-background");
+    border-radius: 100%;
+
+    text-align: center;
+    font-size: 0.80rem;
+    text-decoration: none;
+
     position: relative;
+}
 
-    .footnote-number {
-        width: 1.25rem;
+// List of footnes
+.footnotes {
+    @extend %textdefaults;
 
-        display: inline-block;
-        @include common.box-borderbox;
-        padding-bottom: 2px;
+    margin-top: 2rem;
+    padding: 0;
 
-        color: pages-style.get-color("footnote-text");
-
-        background-color: pages-style.get-color("footnote-background");
-        border-radius: 100%;
-
-        text-align: center;
+    ol {
+        margin: 0;
     }
 
-    .footnote-text {
-        $text-container-width: min(50vw, 175px);
-        $text-container-height: min(50vh, 125px);
-        $border-radius: 15px;
+    a, p {
+        width: auto;
+    }
 
-        width: $text-container-width;
-        height: auto;
-        max-height: $text-container-height;
-                
-        @include common.box-borderbox;
-        padding: 0.8rem 1rem;
-        
-        color: pages-style.get-color("text");
-
-        background-color: color.adjust(pages-style.get-color("background"),
-                                        $blackness: 15%);
-        border: 2px solid pages-style.get-color("border");
-        border-radius: $border-radius 0 0 0;
-
-        position: absolute;
-        z-index: 10;
-        overflow-y: auto;
-        
-        bottom: 125%;
-        margin-left: calc(-1 * $text-container-width / 2);
-
-        // Scrollbars
-
-        // Chrome
-        $scrollbar-track-color: #5f5f5f;
-
-        &::-webkit-scrollbar {
-            width: 5px;
-        }
-        &::-webkit-scrollbar-track {
-            background: transparent;
-        }
-        &::-webkit-scrollbar-thumb {
-            background: $scrollbar-track-color;
-            border-radius: 50px;
-        }
-        &::-webkit-scrollbar-thumb:hover {
-            background: color.adjust($scrollbar-track-color, $lightness: 50%);
-        }
-
-        // Firefox
-        scrollbar-color: $scrollbar-track-color transparent;
-        scrollbar-width: thin;
+    p {
+        padding: 0 0.5rem;
     }
 }

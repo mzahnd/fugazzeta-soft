@@ -5,11 +5,15 @@ custom_css: [notes/index.css]
 custom_js: []
 ---
 
+{% comment %}
+<!--From: https://gist.github.com/lukecathie/2b4eaad90467b3a7c266 -->
+{% endcomment %}
+{% assign all_notes = site.notes | sort: 'date' | reverse %}
 <div class="container-publication">
     <h1 class="publication-title">Notes</h1>
     <ul>
-    {% for note in site.notes %}
-    <li {% if note == site.notes.last %} style="border-bottom: none;" {% endif %}>
+    {% for note in all_notes %}
+    <li {% if note == all_notes.last %} style="border-bottom: none;" {% endif %}>
         <h1><a href="{{ note.url }}">{{ note.title }}</a></h1>
         <p id="post-date">Published: {{ note.date }}</p>
         {% if note.tags.size > 0 %}
