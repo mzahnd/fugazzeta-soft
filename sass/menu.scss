@@ -48,6 +48,7 @@
 
     .menu-content {
         height: 100vh;
+        max-width: inherit;
 
         display: flex;
         @include common.flex-column;
@@ -83,9 +84,10 @@
 
     .menu-list {
         min-width: $menu-min-width;
+        max-width: inherit;
 
         margin: 0;
-        padding: 25px 0;
+        padding: 5px 0;
 
         @include common.flex-item-align-center;
         @include common.flex-column;
@@ -100,15 +102,44 @@
     }
 
     .menu-info-list {
+        max-width: inherit;
+
         display: flex;
         align-items: center;
         justify-content: space-evenly;
 
         @include common.flex-row;
 
+        li {
+            margin: $btn-margins math.div($btn-margins, 3);
+
+            /* Tablet */
+            @include common.media-screen(tablet) {
+                margin-top: 0;
+                margin-bottom: 0;
+            }
+
+            /* Desktop */
+            @include common.media-screen(desktop) {
+                margin-top: 0;
+                margin-bottom: 0;
+            }
+        }
+
         .btn {            
             &-link {
-                min-width: math.div($menu-min-width, 1.5);
+                min-width: math.div($menu-min-width, 2);
+
+                /* Tablet */
+                @include common.media-screen(tablet) {
+                    min-width: math.div($menu-min-width, 1.45);
+                }
+
+                /* Desktop */
+                @include common.media-screen(desktop) {
+                    min-width: math.div($menu-min-width, 1.45);
+                }
+
                 padding: math.div(list.nth($btn-padding, 1), 1.15);
     
                 font-size: 1.15rem;
@@ -117,7 +148,10 @@
     }
 
     .accessibility-opts {
-        margin-top: 30px;
+        max-width: inherit;
+
+        margin-top: 20px;
+        margin-bottom: 15px;
 
         @include common.flex-item-align-center;
         @include common.flex-column;

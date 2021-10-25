@@ -53,5 +53,9 @@ katex:
     error_color: "#cc0000"
 
 plugins:
+    # KaTeX equations
   - jekyll-katex
+    # Adds loading="lazy" to images and iframe
+    # https://github.com/gildesmarais/jekyll-loading-lazy
+  - jekyll-loading-lazy
   - jekyll-sitemap  # Run last !
