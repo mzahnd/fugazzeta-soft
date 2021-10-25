@@ -16,6 +16,14 @@
       {% endfor %}
     </ul>
 
+    <ul class="menu-info-list">
+      {% for item in site.data.information %}
+      <li>
+        <a href="{{ item.link }}" class="btn btn-link">{{ item.name }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+
     <div class="accessibility-opts">
       <p>Current font size: 
         <span id="accessibility-font-size-label">0 pt</span>

@@ -12,6 +12,12 @@ Blah
 Blah
 Blah
 
+Monkey:
+
+![monkey](/res/collections/posts/MonkeyBusiness.jpeg){:height="200px" width="200px"}
+
+Is here!
+
 ## Más cosas
 
 Blah

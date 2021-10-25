@@ -2,3 +2,14 @@
 @use 'pages-style' with (
   $-container-page-name: "#container-page",
 );
+
+.page-content {
+  width: 90vw;
+
+  margin: 0 auto;;
+}
+
+.footnotes {
+  margin-left: auto;
+  margin-right: auto;
+}

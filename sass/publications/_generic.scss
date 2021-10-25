@@ -68,7 +68,7 @@ code {
       padding-right: 0.5rem;
       color: color.adjust(pages-style.get-color("text"), $blackness: 35%);
     }
-  }
+}
   
 
 p {
@@ -188,25 +188,12 @@ blockquote {
     }
 }
 
-// Footnote marker
-.footnote {
-    width: 1.15rem;
-    margin: 0 0.3rem;
-
-    display: inline-block;
-    @include common.box-borderbox;
-    padding-bottom: 2px;
-
-    color: pages-style.get-color("footnote-text");
-
-    background-color: pages-style.get-color("footnote-background");
-    border-radius: 100%;
-
-    text-align: center;
-    font-size: 0.80rem;
-    text-decoration: none;
-
-    position: relative;
+img {
+    max-width: $content-width;
+    height: auto;
+    
+    display: block;
+    margin: 1rem auto;
 }
 
 // List of footnes
@@ -214,17 +201,4 @@ blockquote {
     @extend %textdefaults;
 
     margin-top: 2rem;
-    padding: 0;
-
-    ol {
-        margin: 0;
-    }
-
-    a, p {
-        width: auto;
-    }
-
-    p {
-        padding: 0 0.5rem;
-    }
 }

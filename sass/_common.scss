@@ -51,6 +51,11 @@ $-viewport-desktop-desktop-big: 1800px;
   @content;
 }
 
+@mixin flex-column-w {
+  flex-flow: column wrap;
+  @content;
+}
+
 @mixin flex-row {
   flex-flow: row wrap;
   @content;

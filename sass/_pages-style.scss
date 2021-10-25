@@ -1,4 +1,5 @@
 @use 'sass:color';
+@use "sass:math";
 @use "sass:map";
 
 @use 'common';
@@ -29,13 +30,6 @@ $-color-palette-named-buttons: (
   "btn-text":               map.get($-color-palette-named, "text")
 );
 
-$-color-palette-named-blockquote: (
-  "blockquote-background":             color.adjust(map.get($-color-palette-named, "background"), $blackness: 25%),
-  "blockquote-text":                   color.adjust(map.get($-color-palette-named, "text"), $blackness: 15%),
-  "blockquote-links":                  color.adjust(map.get($-color-palette-named, "links"), $blackness: 15%),
-  "blockquote-border":                 color.adjust(map.get($-color-palette-named, "border"), $blackness: 35%),
-);
-
 $-color-palette-named-buttons-pseudo-classes: (
   "btn-hover-background":   color.adjust(map.get(
                                             $-color-palette-named-buttons,
@@ -59,10 +53,29 @@ $-color-palette-named-buttons-pseudo-classes: (
                             )
 );
 
+
+$-color-palette-named-blockquote: (
+  "blockquote-background":             color.adjust(map.get($-color-palette-named, "background"), $blackness: 25%),
+  "blockquote-text":                   color.adjust(map.get($-color-palette-named, "text"), $blackness: 15%),
+  "blockquote-links":                  color.adjust(map.get($-color-palette-named, "links"), $blackness: 15%),
+  "blockquote-border":                 color.adjust(map.get($-color-palette-named, "border"), $blackness: 35%),
+);
+
+$-color-palette-named-form: (
+  "form-background":             #03081a,
+  "form-text":                   #cfcfcf,
+  "form-border":                 #a3440d,
+  "form-focus":                  #186bb8,
+  "form-attention":              #e02929,
+  "form-error":                  #e02929,
+  
+);
+
 $-color-palettes-maps: ($-color-palette-named,
                         $-color-palette-named-buttons,
+                        $-color-palette-named-buttons-pseudo-classes,
                         $-color-palette-named-blockquote,
-                        $-color-palette-named-buttons-pseudo-classes
+                        $-color-palette-named-form
 );
 
 $-page-container-height:      100vh;
@@ -214,7 +227,7 @@ a {
 
   }
 
-  &:hover, &:focus, &:active, &:visited {
+  &:focus, &:visited, &:hover, &:active {
     background-color: get-color("btn-background");
     
     border: $btn-border-style;
@@ -226,13 +239,20 @@ a {
     background-color: get-color("btn-hover-background");
     border-color: get-color("btn-hover-border");
   }
+
   &:active {
     background-color: get-color("btn-active-background");
     border-color: get-color("btn-active-border");
   }
 
+  &:disabled {
+    color: color.adjust(get-color("btn-text"), $blackness: 50%);
+    background-color: color.adjust(get-color("background"), $blackness: 50%);
+    border-color: color.adjust(get-color("btn-border"), $blackness: 50%);
+  }
+
   &-link {
-    &:hover, &:focus, &:active, &:visited {
+    &:focus, &:visited, &:hover, &:active {
       border-left: none;
       border-right: none;
     }
@@ -266,10 +286,12 @@ a {
 
     box-shadow: 1px 5px 20px -5px #4a4a4a;
   }
+
   @include common.media-screen(desktop-small) {
     max-width: 40vw;
     left:-40vw;     // Must be equal to max-width for transition to look smooth
   }
+
   @include common.media-screen(desktop-big) { 
     max-width: 30vw;
     left:-30vw;   // Must be equal to max-width for transition to look smooth
@@ -279,6 +301,73 @@ a {
 .flex-separator {
   flex-grow: 9;
 }
+
+// Footnote marker
+.footnote {
+  width: 1.15rem;
+  margin: 0 0.3rem;
+
+  display: inline-block;
+  @include common.box-borderbox;
+  padding-bottom: 2px;
+
+  color: get-color("footnote-text");
+
+  background-color: get-color("footnote-background");
+  border-radius: 100%;
+
+  text-align: center;
+  font-size: 0.80rem;
+  text-decoration: none;
+
+  position: relative;
+}
+
+// List of footnes
+.footnotes {
+  $content-width: 90vw;
+  $content-right-left-margin: math.div(100vw - $content-width, 2);
+
+  width: $content-width;
+  padding: 0;
+  margin: 2rem $content-right-left-margin 0.2rem $content-right-left-margin;
+
+  color: get-color("text");
+  text-align: left;
+  text-decoration: none;
+  font-size: 1rem;
+  font-family: Georgia, serif;
+  
+  ol, ul {
+      margin: 0;
+      padding: 0;
+
+      li {
+        width: auto;
+        margin: 0 2rem;
+    
+        /* Desktop */
+        @include common.media-screen(desktop) {
+            margin: 0 3rem;
+        }
+    
+        p {
+            margin: 0;
+        }
+        a {
+            margin: 0;
+        }
+      }
+    
+      a, p {
+          width: auto;
+      }
+    
+      p {
+          padding: 0 0.5rem;
+      }
+    }
+  }
 
 @if $-container-page-name {
   #{$-container-page-name} {

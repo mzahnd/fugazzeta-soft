@@ -1,4 +1,5 @@
 @use 'sass:color';
+@use 'sass:list';
 @use 'sass:math';
 
 @use 'common';
@@ -10,7 +11,7 @@
     $btn-background-color: pages-style.get-color("btn-background");
     $btn-margins: 15px; // Around buttons, set in 'li'
     // Inside buttons, set in '.btn'. left and right padding: $menu-min-width
-    $btn-padding: 10px 0px;
+    $btn-padding: 10px 0;
     $btn-border-radius: 10px;
 
     // min-width: $menu-min-width;
@@ -92,10 +93,26 @@
         li {
             margin: $btn-margins;
             
-            font-size: 1.5rem;
             background-color: transparent;
 
             border-radius: $btn-border-radius;
+        }
+    }
+
+    .menu-info-list {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+
+        @include common.flex-row;
+
+        .btn {            
+            &-link {
+                min-width: math.div($menu-min-width, 1.5);
+                padding: math.div(list.nth($btn-padding, 1), 1.15);
+    
+                font-size: 1.15rem;
+            }
         }
     }
 
@@ -147,6 +164,8 @@
         
         &-link {
             min-width: $menu-min-width;
+
+            font-size: 1.5rem;
         }
     }
 }

@@ -20,6 +20,10 @@ function getUnits(parsed, str) {
     return units.trim();
 }
 
+function isNumeric(character) {
+    return (character >= '0' && character <= '9');
+}
+
 selectorVariable = function() {
     function set(selector, variable, newValue) {
         selector.style.setProperty(variable, newValue);
@@ -35,13 +39,6 @@ selectorVariable = function() {
     };
 }();
 
-// function getSelectorVariable(selector, variable) {
-//     return getComputedStyle(selector).getPropertyValue(variable);
-// }
-
-// function setSelectorVariable(selector, variable, newValue) {
-//     selector.style.setProperty(variable, newValue);
-// }
 
 function sleep(ms) {
     // https://stackoverflow.com/a/39914235
