@@ -24,8 +24,7 @@
 
     @include common.box-borderbox;
     
-    border: 2px solid color.adjust(pages-style.get-color("border"),
-                        $blackness: 35%);
+    border: 2px solid pages-style.get-color("border");
     border-radius: 20px;
 
     ul {
@@ -37,7 +36,7 @@
             padding-bottom: 25px;
             border-bottom: 1px solid color.adjust(
                                         pages-style.get-color("border"),
-                                        $blackness: 95%
+                                        $blackness: 75%
                                     );
         }
 

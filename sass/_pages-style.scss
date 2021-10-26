@@ -15,7 +15,7 @@ $-color-palette-named: (
   "text":                   #cfcfcf,
   "header-main":            #d06425,
   "links":                  #3687d3,
-  "border":                 #e7e6e6,
+  "border":                 #ababab,
   "border-code":            #0c2a05,
   "background-code-box":    #131727,
   "focus":                  #e02929,
@@ -178,7 +178,7 @@ a {
 
   line-height: 1.4;
 
-  display: inline-block;
+  display: inline;
 
   cursor: pointer;
 }
@@ -318,6 +318,7 @@ a {
 
   text-align: center;
   font-size: 0.80rem;
+  text-indent: 0;
   text-decoration: none;
 
   position: relative;
@@ -335,6 +336,7 @@ a {
   color: get-color("text");
   text-align: left;
   text-decoration: none;
+  text-indent: 0;
   font-size: 1rem;
   font-family: Georgia, serif;
   

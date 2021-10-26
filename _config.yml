@@ -2,7 +2,8 @@ title: 'Fugazzeta Soft'
 description: 'Another web page on the internet'
 author: 'Martín E. Zahnd'
 developer: 'Martín E. Zahnd'
-url: "https://example.com" # the base hostname & protocol for your site
+# Base hostname and protocol
+url: "https://fugazzeta-soft.000webhostapp.com/" 
 
 logo-path: '/res/logo.png'
 
@@ -10,7 +11,8 @@ exclude: [
     private/,
     sass/,
     .gitignore,
-    build.sh
+    build.sh,
+    run_server.sh
   ]
 
 markdown: kramdown
@@ -52,9 +54,23 @@ katex:
     throw_error: true         
     error_color: "#cc0000"
 
+toc:
+  # See https://github.com/toshimaru/jekyll-toc#customization
+  min_level: 1
+  max_level: 6
+  ordered_list: false
+  no_toc_section_class: no_toc_section
+  list_id: toc
+  list_class: section-nav
+  sublist_class: ''
+  item_class: toc-entry
+  item_prefix: toc-
+
 plugins:
     # KaTeX equations
   - jekyll-katex
+    # Table of Contents
+  - jekyll-toc
     # Adds loading="lazy" to images and iframe
     # https://github.com/gildesmarais/jekyll-loading-lazy
   - jekyll-loading-lazy

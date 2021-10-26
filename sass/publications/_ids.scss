@@ -6,15 +6,32 @@
 $mobile-left-right-margin: 0 !default;
 $desktop-left-right-margin: 1rem 0 !default;
 
-#post-date, #post-tags {
-    margin: 0 $mobile-left-right-margin;
+$post-header-font: "Courier New", monospace;
 
-    /* Desktop */
-    @include common.media-screen(desktop) {
-      margin: 0 $desktop-left-right-margin;
-    }
+#post-title {
+  color: pages-style.get-color("header-main");
+}
 
-    text-align: left;
+#post-date, #post-edit, #post-tags {
+  margin: 0 $mobile-left-right-margin;
 
-    color: color.adjust(pages-style.get-color("text"), $blackness: 25%);
+  /* Desktop */
+  @include common.media-screen(desktop) {
+    margin: 0 $desktop-left-right-margin;
+  }
+
+  color: color.adjust(pages-style.get-color("text"), $blackness: 25%);
+  text-align: left;
+  font-size: 0.75rem;
+
+  font-family: $post-header-font;
+}
+
+#post-author {
+
+  color: color.adjust(pages-style.get-color("text"), $blackness: 5%);
+  font-size: 1rem;
+  text-align: center;
+
+  font-family: $post-header-font;
 }

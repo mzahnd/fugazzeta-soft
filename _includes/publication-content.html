@@ -1,5 +1,10 @@
 <h1 id="post-title">{{ page.title }}</h1>
-<p id="post-date">Written by {{ page.author }} on: {{ page.date | date: "%F %R" }}</p>
+<p id="post-author">Written by {{ page.author }}</p>
+
+<p id="post-date">Published: {{ page.date | date: "%F %H:%M" }}</p>
+{% if page.edit %}
+<p id="post-edit">Edited: {{ page.edit | date: "%F %H:%M" }}</p>
+{% endif %}
 {% if page.tags.size > 0 %}
 <p id="post-tags">Tags: 
     {% for tag in page.tags %}

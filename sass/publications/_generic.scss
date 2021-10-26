@@ -20,14 +20,27 @@ $content-right-left-margin: math.div(100vw - $content-width, 2);
     margin: 0.2rem $content-right-left-margin;
 
     color: pages-style.get-color("text");
-    text-align: justify;
+    text-align: left;
     text-decoration: none;
+    text-indent: 0.5rem;
     font-size: 1rem;
     font-family: Georgia, serif;
 }
 
 #post-title {
     text-align: center;
+}
+
+#toc {
+    width: -moz-fit-content;
+    width: fit-content;
+
+    margin: 1rem auto;
+    padding: 1rem 0;
+    padding-right: $content-right-left-margin;
+
+    border: 1px solid pages-style.get-color("border");
+    border-radius: 8px;    
 }
 
 code {
@@ -41,6 +54,7 @@ code {
   
     text-align: left;
     text-decoration: none;
+    text-indent: 0;
     font-size: 0.8rem;
     font-family: monospace, "Courier New";
   
@@ -116,11 +130,13 @@ p {
 
 h1, h2, h3, h4, h5, h6 {
     margin: 0.5rem 5vw;
-    color: pages-style.get-color("text");
-}
+    padding: 0 2rem;
 
-h1 {
-    color: pages-style.get-color("header-main");
+    color: pages-style.get-color("text");
+
+    a {
+        margin: unset; // TOC creates links inside headers
+    }
 }
 
 a {
@@ -135,21 +151,39 @@ a {
 }
 
 ol, ul {
-    width: $content-width;
+    $sub-item-margin: 0 1.5rem;
+
+    width: auto;
     max-width: $content-width;
     padding: 0;
     margin: 0.3rem $content-right-left-margin;
+
+    ul {
+        margin: $sub-item-margin;
+        margin-right: 0;
+        padding: 0;
+
+        li {
+            margin: $sub-item-margin;
+            margin-right: 0;
+            padding: 0;
+        }
+    }
 
     li {
         @extend %textdefaults;
 
         width: auto;
         margin: 0 2rem;
+        margin-right: 0;
 
         /* Desktop */
         @include common.media-screen(desktop) {
             margin: 0 3rem;
+            margin-right: 0;
         }
+
+        text-indent: 0;
 
         p {
             margin: 0;
