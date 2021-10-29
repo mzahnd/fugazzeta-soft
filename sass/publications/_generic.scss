@@ -43,9 +43,9 @@ $content-right-left-margin: math.div(100vw - $content-width, 2);
     border-radius: 8px;    
 }
 
-code {
+/* Code styles */
+%code-block {
     max-width: calc($content-width - 10px);
-    min-width: calc($content-width - 10px);
 
     margin: 1rem 5vw;
     padding: 1rem 0 1rem 5px;
@@ -83,42 +83,49 @@ code {
       color: color.adjust(pages-style.get-color("text"), $blackness: 35%);
     }
 }
-  
+
+%inline-code {
+    width: auto;
+    min-width: unset;
+    
+    margin: 0;
+    padding: 0 3px;
+
+    display: inline-flex;
+
+    background-color: color.adjust(
+        pages-style.get-color("background-code-box"),
+        $blackness: 5%
+    );
+    text-decoration: none;
+    text-indent: 0;
+    font-size: 0.9rem;
+    font-family: monospace, "Courier New";
+
+    border: 1px solid color.adjust(
+                        pages-style.get-color("background-code-box"),
+                        $lightness: 5%
+    );
+    line-height: 1.7;
+
+    overflow-wrap: break-word;
+}
+
+code {
+    /* Inline by default */
+    @extend %inline-code;
+}
+
+
+div .highlight, pre {
+    code {
+        @extend %code-block;
+    }
+}
+/* End code styles */
 
 p {
     @extend %textdefaults;
-
-    /* Inline-code */
-    code {
-        width: auto;
-        min-width: unset;
-        
-        margin: 0;
-        padding: 0px 3px;
-
-        display: inline-flex;
-
-        // /* Desktop */
-        // @include common.media-screen(desktop) {
-        //     display: inline;
-        // }
-
-        background-color: color.adjust(
-            pages-style.get-color("background-code-box"),
-            $blackness: 5%
-        );
-        text-decoration: none;
-        font-size: 0.9rem;
-        font-family: monospace, "Courier New";
-
-        border: 1px solid color.adjust(
-                            pages-style.get-color("background-code-box"),
-                            $lightness: 5%
-        );
-        line-height: 1.7;
-    
-        overflow-wrap: break-word;
-    }
 
     > a {
         display: inline;
@@ -185,10 +192,10 @@ ol, ul {
 
         text-indent: 0;
 
-        p {
+        > p {
             margin: 0;
         }
-        a {
+        > a {
             margin: 0;
         }
     }
@@ -197,6 +204,7 @@ ol, ul {
 blockquote {
     @extend %textdefaults;
 
+    width: auto;
     margin-top: 1rem;
     margin-bottom: 1rem;
     padding: 0;

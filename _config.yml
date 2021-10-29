@@ -18,7 +18,8 @@ exclude: [
 markdown: kramdown
 highlighter: rouge
 kramdown:
-  input: kramdown
+  #  input: kramdown
+  input: GFM
   syntax_highlighter_opts:
     default_lang: plain
     guess_lang: true
