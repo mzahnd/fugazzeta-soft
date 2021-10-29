@@ -8,43 +8,45 @@ $tablet-height:   50px;
 
 $background-color:              #304170;
 
-$header-main-logo-tablet-margins: 10vw;
+$top-bar-logo-tablet-margins: 10vw;
 
 $font-size-def:                   16pt;
-$header-main-logo-font-size:      $font-size-def;
+$top-bar-logo-font-size:      $font-size-def;
 
 
-.header-main {
+.top-bar {
   $btn-margins:                   15px;
 
-  display: flex;
-  
-  width: 100%;
-  height: $mobile-height;
+  &--container {
+    display: flex;
+    
+    width: 100%;
+    height: $mobile-height;
 
-  /* Tablet */
-  @include common.media-screen(tablet) {
-    height: $tablet-height;
-  }
-  /* Desktop */
-  @include common.media-screen(desktop) {
-    height: $desktop-height;
-  }
-
-  background-color: $background-color;
-
-  justify-content: space-between;
-  align-items: center;
-  overflow: hidden;
-
-  div {
-    border-width: 0;
-    height: 100%;
+    /* Tablet */
+    @include common.media-screen(tablet) {
+      height: $tablet-height;
+    }
+    /* Desktop */
+    @include common.media-screen(desktop) {
+      height: $desktop-height;
+    }
 
     background-color: $background-color;
-    text-align: center;
 
-    @include common.flex-item-align-center;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+
+    div {
+      border-width: 0;
+      height: 100%;
+
+      background-color: $background-color;
+      text-align: center;
+
+      @include common.flex-item-align-center;
+    }
   }
 
   &-btn {
@@ -95,7 +97,7 @@ $header-main-logo-font-size:      $font-size-def;
     margin-right: calc($btn-margins * 2); 
 
     color: pages-style.get-color("text");
-    font-size: $header-main-logo-font-size;
+    font-size: $top-bar-logo-font-size;
 
     a {
       flex-grow: 10;
@@ -114,14 +116,14 @@ $header-main-logo-font-size:      $font-size-def;
         margin: 15px 25px;
         padding: 0;
 
-        font-size: $header-main-logo-font-size;
+        font-size: $top-bar-logo-font-size;
 
         color: pages-style.get-color("text");
         text-align: center;
 
         /* Desktop */
         @include common.media-screen(desktop) {
-          font-size: $header-main-logo-font-size * 1.3; 
+          font-size: $top-bar-logo-font-size * 1.3; 
         }
       }
     }

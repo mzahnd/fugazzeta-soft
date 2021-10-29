@@ -5,4 +5,13 @@ custom_css: [syntax.css, notes/note.css]
 publication-class: note
 ---
 
-{{ content | toc }}
+{% assign pub_content = page.content | 
+  split: site.excerpt_separator | 
+  last | 
+  remove_first: '</p>' %}
+
+<article>
+  <div class="post-content">
+    {{ pub_content }}
+  </div>
+</article>

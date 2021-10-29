@@ -2,6 +2,13 @@
 layout: default
 ---
 
+{% comment %}
+
+Excerpt and content separation taken from
+https://stackoverflow.com/a/45250510
+
+{% endcomment %}
+
 <div class="{{ layout.publication-class }}-content">
-    {% include publication-content.html %}
+    {% include publication-generic.html %}
 </div>

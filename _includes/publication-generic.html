@@ -1,0 +1,30 @@
+{% assign pub_excerpt = page.content | 
+    split: site.excerpt_separator | 
+    first | 
+    append: '</p>' %}
+
+<header>
+  <h1 id="post-title">{{ page.title }}</h1>
+  <p id="post-author">Written by {{ page.author }}</p>
+
+  <p id="post-date">Published: {{ page.date | date: "%F %H:%M" }}</p>
+  {% if page.edit %}
+  <p id="post-edit">Edited: {{ page.edit | date: "%F %H:%M" }}</p>
+  {% endif %}
+  {% if page.tags.size > 0 %}
+  <p id="post-tags">Tags: 
+      {% for tag in page.tags %}
+          {{ tag }}{% if tag != page.tags.last %}, {% endif %}
+      {% endfor %}
+  </p>
+  {% endif %}
+  <br>
+
+  <div class="post-excerpt">
+      {{ pub_excerpt }}
+  </div>
+</header>
+
+{% toc %}
+
+{{ content }}

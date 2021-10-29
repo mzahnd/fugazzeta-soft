@@ -1,7 +1,7 @@
 @use 'common';
 @use 'pages-style';
 
-.footer {
+.site-footer--container {
   &_main {
     @include common.flex-item-align-center;
     @include common.flex-column;

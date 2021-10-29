@@ -20,7 +20,7 @@ header = function() {
     document.addEventListener('readystatechange', event => {
         // HTML/DOM elements are ready 
         if (pageState.isInteractive(event)) {
-            containerMenuMain = document.getElementById('menu-main');
+            containerMenuMain = document.getElementById('site-main-menu');
             containerBtnToggleMenu =
                             document.getElementById('btn-toggle-menu');
             containerPageContent =
@@ -62,9 +62,6 @@ header = function() {
         if (pageState.isComplete(event)) {
             // Hide menu
             mainMenu.hide();
-    
-            // // Set current font size
-            // mainMenu.accessZoomWriteSize();
         }
     });
 

@@ -106,8 +106,7 @@ $-page-container-height:      100vh;
   min-height: 100vh;
 }
 
-
-header, footer {
+.site-top-bar, .site-footer {
   display: flex;
   flex-grow: 0;
   flex-shrink: 1;
@@ -123,6 +122,11 @@ html {
   font-size: var(--page-font-size, 12pt);
 
   font-family: Georgia, serif;
+}
+
+header, footer {
+  display: flex;
+  @include common.flex-column;
 }
 
 body {
@@ -143,15 +147,15 @@ h1 {
 }
 
 h2 {
-  font-size: 1.6rem;
-}
-
-h3 {
   font-size: 1.5rem;
 }
 
-h4 {
+h3 {
   font-size: 1.4rem;
+}
+
+h4 {
+  font-size: 1.3rem;
 }
 
 h5 {
@@ -259,7 +263,7 @@ a {
   }
 }
 
-.container-menu {
+.site-menu--container {
   $border-right-radius: 10px;
 
   width: 100vw;

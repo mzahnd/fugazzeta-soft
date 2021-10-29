@@ -12,7 +12,7 @@ mainMenu = function() {
     document.addEventListener('readystatechange', event => {
         // HTML/DOM elements are ready 
         if (pageState.isInteractive(event)) {            
-            containerMenuMain = document.getElementById('menu-main');
+            containerMenuMain = document.getElementById('site-main-menu');
 
             accessibility.init();
 
@@ -20,7 +20,7 @@ mainMenu = function() {
 
             // Buttons 
             // Close menu
-            document.getElementById('btn-menu-main-close')
+            document.getElementById('btn-site-main-menu-close')
                                 .addEventListener('click', close);
 
             // Font size +/-

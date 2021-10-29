@@ -20,9 +20,9 @@
     -->
 
     <!-- ====== CSS Files ====== -->
-    <link rel="stylesheet" href="/css/header.css">
-    <link rel="stylesheet" href="/css/footer.css">
-    <link rel="stylesheet" href="/css/menu.css">
+    <link rel="stylesheet" href="/css/site-top-bar.css">
+    <link rel="stylesheet" href="/css/site-footer.css">
+    <link rel="stylesheet" href="/css/site-menu.css">
     
     {% for ccss in layout.custom_css %}
     <link rel="stylesheet" href="/css/{{ ccss }}">
@@ -34,6 +34,9 @@
 
     <!-- ====== JS Files ====== -->
     <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="/js/site-menu.js"></script>
+    <script type="text/javascript" src="/js/site-top-bar.js"></script>
+
     {% for cjs in layout.custom_js %}
     <script type="text/javascript" src="/js/{{ cjs }}"></script>
     {% endfor %}
@@ -74,10 +77,10 @@
     {% endif %}
   </head>
   <body>
-    {% include menu.html classes="container-menu" %}
+    {% include site-menu.html classes="site-menu--container" %}
 
     <div id="container-page">
-        {% include header.html %}
+        {% include site-top-bar.html %}
 
         {% if page.content-id %}
           <div class="page-content" id="{{ page.content-id }}">
@@ -88,7 +91,7 @@
         </div>
 
         <div class="flex-separator"></div>
-        {% include footer.html %}
+        {% include site-footer.html %}
     </div>
   </body>
 </html>
