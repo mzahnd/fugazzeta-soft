@@ -346,35 +346,35 @@ a {
   font-family: Georgia, serif;
   
   ol, ul {
-      margin: 0;
-      padding: 0;
+    margin: 0;
+    padding: 0;
 
-      li {
-        width: auto;
-        margin: 0 2rem;
-    
-        /* Desktop */
-        @include common.media-screen(desktop) {
-            margin: 0 3rem;
-        }
-    
-        p {
-            margin: 0;
-        }
-        a {
-            margin: 0;
-        }
+    li {
+      width: auto;
+      margin: 0 2rem;
+
+      /* Desktop */
+      @include common.media-screen(desktop) {
+        margin: 0 3rem;
       }
-    
-      a, p {
-          width: auto;
-      }
-    
+
       p {
-          padding: 0 0.5rem;
+        margin: 0;
+      }
+      a {
+        margin: 0;
       }
     }
+
+    a, p {
+      width: auto;
+    }
+
+    p {
+      padding: 0 0.5rem;
+    }
   }
+}
 
 @if $-container-page-name {
   #{$-container-page-name} {

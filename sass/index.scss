@@ -67,36 +67,6 @@
     color: pages-style.get-color("header-main");
   }
 
-  /*
-  .publication-more, .publication-more a {
-    margin: 0.25rem;
-    padding: 0.5rem 15px;
-
-    text-align: center;
-    font-family: "Brush Script MT", cursive, serif;
-    font-size: 1.5rem;
-    font-style: oblique;
-
-    color: color.adjust(pages-style.get-color("btn-text"),
-      $blackness: 15%);
-
-    border-top: $publication-more-border;
-    border-bottom: $publication-more-border;
-    border-color: transparent;
-
-    :hover {
-      color: pages-style.get-color("btn-text");
-      
-      border-color: pages-style.get-color("btn-border");
-    }
-  }
-
-  .publication-more {
-    margin: 15px 0;
-    padding: 0;
-  }
-  */
-
   .publication-more {
     margin: 1.5rem auto;
   }

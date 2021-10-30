@@ -5,86 +5,86 @@
 @use 'ids';
 
 .container-publication {
-    $content-width: 90vw;
-    $content-width-desktop: 95vw;
+  $content-width: 90vw;
+  $content-width-desktop: 95vw;
+
+  width: $content-width;
+  max-width: $content-width;
+
+  @include common.media-screen(desktop) {
+    width: $content-width-desktop;
+    max-width: $content-width-desktop;
+  }
+
+  margin: 25px auto;
+  padding: 0;
   
-    width: $content-width;
-    max-width: $content-width;
+  display: flex;
+  @include common.flex-column;
+
+  @include common.box-borderbox;
   
-    @include common.media-screen(desktop) {
-      width: $content-width-desktop;
-      max-width: $content-width-desktop;
-    }
+  border: 2px solid pages-style.get-color("border");
+  border-radius: 20px;
 
-    margin: 25px auto;
-    padding: 0;
-    
-    display: flex;
-    @include common.flex-column;
+  ul {
+    margin: 0;
+    padding: 0 30px;
 
-    @include common.box-borderbox;
-    
-    border: 2px solid pages-style.get-color("border");
-    border-radius: 20px;
-
-    ul {
-        margin: 0;
-        padding: 0 30px;
-
-        list-style-type: none;
-        li {
-            padding-bottom: 25px;
-            border-bottom: 1px solid color.adjust(
-                                        pages-style.get-color("border"),
-                                        $blackness: 75%
-                                    );
-        }
-
-        h1 {
-            margin-block-end: 0.75rem;
-        }
+    list-style-type: none;
+    li {
+      padding-bottom: 25px;
+      border-bottom: 1px solid color.adjust(
+                                  pages-style.get-color("border"),
+                                  $blackness: 75%
+                              );
     }
 
     h1 {
-      font-size: 1.5rem;
+      margin-block-end: 0.75rem;
     }
-    
-    h2 {
-      font-size: 1.3rem;
-    }
-    
-    h3 {
-      font-size: 1.2rem;
-    }
-    
-    h4, h5, h6 {
-      font-size: 1.1rem;
-    }
+  }
 
-    p {
-      text-align: justify;
-    }
-
-    a {
-        text-align: left;
-    }
+  h1 {
+    font-size: 1.5rem;
+  }
   
-    code {
-      margin-left: 1vw;
-      margin-right: 1vw;
-    }
-    
-    .publication-title {
-      margin: 0.5rem 0;
-      padding: 0 15px;
-
-      text-align: center;
-      font-family: "Brush Script MT", cursive, serif;
-      font-size: 2rem;
-      font-style: oblique;
+  h2 {
+    font-size: 1.3rem;
+  }
   
-      color: pages-style.get-color("header-main");
-    }
+  h3 {
+    font-size: 1.2rem;
+  }
+  
+  h4, h5, h6 {
+    font-size: 1.1rem;
+  }
+
+  p {
+    text-align: justify;
+  }
+
+  a {
+      text-align: left;
+  }
+
+  code {
+    margin-left: 1vw;
+    margin-right: 1vw;
+  }
+  
+  .publication-title {
+    margin: 0.5rem 0;
+    padding: 0 15px;
+
+    text-align: center;
+    font-family: "Brush Script MT", cursive, serif;
+    font-size: 2rem;
+    font-style: oblique;
+
+    color: pages-style.get-color("header-main");
+  }
 }
 
 summary {
@@ -92,5 +92,5 @@ summary {
 }
 
 details {
-    margin-top: 25px;
+  margin-top: 25px;
 }
