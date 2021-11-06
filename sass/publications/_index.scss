@@ -22,3 +22,9 @@
   $-container-page-name: "#container-page",
 );
 @use 'container';
+
+.container-publication {
+  p {
+    padding: 0 2rem;
+  }
+}

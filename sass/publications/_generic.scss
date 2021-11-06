@@ -261,3 +261,16 @@ img {
 
   margin-top: 2rem;
 }
+
+.post-excerpt {
+  $margin-tb: 2rem;
+
+  @extend %textdefaults;
+
+  margin-top: $margin-tb;
+  margin-bottom: $margin-tb;
+
+  p {
+    margin: auto;
+  }
+}
